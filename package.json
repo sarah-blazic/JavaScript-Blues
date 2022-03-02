@@ -27,8 +27,12 @@
     ]
   },
   "devDependencies": {
-		"prettier": "^2.2.1"
-	},
+    "@typescript-eslint/eslint-plugin": "^5.13.0",
+    "@typescript-eslint/parser": "^5.13.0",
+    "eslint": "^8.10.0",
+    "eslint-plugin-react": "^7.29.2",
+    "prettier": "^2.2.1"
+  },
   "browserslist": {
     "production": [
       ">0.2%",
