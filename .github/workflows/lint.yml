@@ -37,7 +37,7 @@ jobs:
       - name: Install Node.js dependencies
         run:  |
               cd /home/runner/work/JavaScript-Blues/JavaScript-Blues/client
-              npm ci
+              npm install
 
       - name: Run linters
         uses: wearerequired/lint-action@v1
