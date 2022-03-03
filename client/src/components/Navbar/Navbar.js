@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+//import React, { useState } from 'react';
 import { Button } from "../Button";
 import { MenuItems } from "./MenuItems";
 import "./Navbar.css";
@@ -15,7 +16,7 @@ class Navbar extends Component {
       <nav className="NavbarItems">
         <h1 className="navbar-logo">
           ONLYFROGS
-          <i className="fab fa-react"></i>
+          <i class="fa-solid fa-frog"></i>
         </h1>
 
         <div className="menu-icon" onClick={this.handleClick}>
@@ -35,7 +36,7 @@ class Navbar extends Component {
             );
           })}
         </ul>
-        <Button>Sign Up</Button>
+        <Button>Login</Button>
       </nav>
     );
   }
