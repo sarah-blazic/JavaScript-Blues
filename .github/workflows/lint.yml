@@ -36,7 +36,7 @@ jobs:
       # ESLint and Prettier must be in `package.json`
       - name: Install Node.js dependencies
         run:  |
-              cd /home/runner/work/JavaScript-Blues/JavaScript-Blues/client/package.json
+              cd client
               npm ci
 
       - name: Run linters
