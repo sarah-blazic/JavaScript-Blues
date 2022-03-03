@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 //import React, { useState } from 'react';
 import { Button } from "../Button";
-import { MenuItems } from "./MenuItems";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
+import { MenuItems } from "./MenuItems"
 
 class Navbar extends Component {
   state = { clicked: false };
@@ -16,7 +17,7 @@ class Navbar extends Component {
       <nav className="NavbarItems">
         <h1 className="navbar-logo">
           ONLYFROGS
-          <i class="fa-solid fa-frog"></i>
+          <i className="fa-solid fa-frog"></i>
         </h1>
 
         <div className="menu-icon" onClick={this.handleClick}>
@@ -29,14 +30,18 @@ class Navbar extends Component {
           {MenuItems.map((item, index) => {
             return (
               <li key={index}>
-                <a className={item.cName} href={item.url}>
+                <Link className={item.cName} to={item.url}>
                   {item.title}
-                </a>
+                </Link>
               </li>
             );
           })}
         </ul>
-        <Button>Login</Button>
+        <Button>
+            <Link to="/login">
+              Login
+            </Link>
+        </Button>
       </nav>
     );
   }
