@@ -6,7 +6,7 @@ on:
   push:
     branches:
       - main
-      - sblazic-dev
+      - sarah-blazic-patch-1
   # Replace pull_request with pull_request_target if you
   # plan to use this action with forks, see the Limitations section
   pull_request:
@@ -36,6 +36,7 @@ jobs:
       # ESLint and Prettier must be in `package.json`
       - name: Install Node.js dependencies
         run: npm ci
+        working-directory: ./client
 
       - name: Run linters
         uses: wearerequired/lint-action@v1
