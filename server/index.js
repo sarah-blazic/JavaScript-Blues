@@ -1,5 +1,5 @@
-const express = require('express');
-const Sequelize = require('sequelize');
+const express = require("express");
+const Sequelize = require("sequelize");
 const app = express();
 const port = 3000;
 
@@ -7,7 +7,7 @@ const port = 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/', (req, res) => res.send('hahaha wow!'));
+app.get("/", (req, res) => res.send("hahaha wow!"));
 
 /* TODO:
 1. write config for db connection
