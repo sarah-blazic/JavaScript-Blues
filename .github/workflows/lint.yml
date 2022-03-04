@@ -31,13 +31,12 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: 17
 
       # ESLint and Prettier must be in `package.json`
       - name: Install Node.js dependencies
-        run: |
-            npm install --save-dev eslint-config-react-app eslint@^8.0.0
-            npm install --save-dev --save-exact prettier
+        run: npm ci --include=dev
+        working-directory: client
             
       - name: Run linters
         uses: wearerequired/lint-action@v1
