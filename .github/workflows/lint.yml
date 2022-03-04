@@ -49,6 +49,6 @@ jobs:
         run: npx --no-install prettier --check .
         working-directory: client
 
-      - name: Build
-        run: npm run build
-        working-directory: client
+#       - name: Build
+#         run: npm run build
+#         working-directory: client
