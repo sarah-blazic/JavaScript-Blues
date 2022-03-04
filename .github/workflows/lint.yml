@@ -5,10 +5,11 @@ on:
   pull_request:
       branches:
         - main
+        - sarah-blazic-patch-1
   push:
     branches:
       - main
-
+      - sarah-blazic-patch-1
 jobs:
   prettier:
     runs-on: ubuntu-latest
