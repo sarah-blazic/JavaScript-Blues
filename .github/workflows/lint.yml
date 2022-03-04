@@ -38,12 +38,12 @@ jobs:
 
       - name: npm ci
         if: steps.cache-node_modules.outputs.cache-hit != 'true'
-        run: npm ci --no-audit
+        run: npm ci
         working-directory: client
 
       - name: ESLint
         run: npx --no-install eslint
-        working-directory: client.
+        working-directory: client
 
       - name: Prettier
         run: npx --no-install prettier --check .
