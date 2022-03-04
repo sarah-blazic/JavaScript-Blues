@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { Button } from "../Button";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-import { MenuItems } from "./MenuItems"
+import { MenuItems } from "./MenuItems";
 
 class Navbar extends Component {
   state = { clicked: false };
@@ -38,9 +38,7 @@ class Navbar extends Component {
           })}
         </ul>
         <Button>
-            <Link to="/login">
-              Login
-            </Link>
+          <Link to="/login">Login</Link>
         </Button>
       </nav>
     );
