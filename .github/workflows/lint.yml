@@ -1,54 +1,27 @@
-name: Lint
+name: Continuous Integration
 
+# This action works with pull requests and pushes
 on:
-  # Trigger the workflow on push or pull request,
-  # but only for the main branch
-  push:
-    branches:
-      - main
-      - sarah-blazic-patch-1
-  # Replace pull_request with pull_request_target if you
-  # plan to use this action with forks, see the Limitations section
   pull_request:
+      branches:
+        - main
+  push:
     branches:
       - main
 
 jobs:
-  main:
+  prettier:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node-version: [16]
-
     steps:
-      - uses: actions/checkout@v2
-
-      - uses: actions/setup-node@v2
+      - name: Checkout
+        uses: actions/checkout@v2
         with:
-          node-version: ${{ matrix.node-version }}
+          # Make sure the actual branch is checked out when running on pull requests
+          ref: ${{ github.head_ref }}
 
-      - name: Cache node_modules
-        id: cache-node_modules
-        uses: actions/cache@v2
+      - name: Prettify code
+        uses: creyD/prettier_action@v4.2
         with:
-          path: node_modules
-          key: node_modules-${{ matrix.os }}-${{ matrix.node-version }}-${{ hashFiles('package-lock.json') }}
-
-      - name: npm ci
-        if: steps.cache-node_modules.outputs.cache-hit != 'true'
-        run: npm ci
-        working-directory: client
-
-      - name: ESLint
-        run: npx --no-install eslint
-        working-directory: client
-
-      - name: Prettier
-        run: npx --no-install prettier --check .
-        working-directory: client
-
-#       - name: Build
-#         run: npm run build
-#         working-directory: client
+          # This part is also where you can pass other options, for example:
+          prettier_options: --write **/*.{js,md}
