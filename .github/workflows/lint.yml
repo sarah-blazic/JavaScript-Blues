@@ -36,7 +36,7 @@ jobs:
       # ESLint and Prettier must be in `package.json`
       - name: Install Node.js dependencies
         run: |
-            npm install eslint --save-dev
+            npm install --save-dev eslint-config-react-app eslint@^8.0.0
             npm install --save-dev --save-exact prettier
             
       - name: Run linters
