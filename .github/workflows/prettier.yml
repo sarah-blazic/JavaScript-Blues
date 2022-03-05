@@ -11,18 +11,17 @@ on:
       - main
       - sarah-blazic-patch-1
 jobs:
-  prettier:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout Repository
         uses: actions/checkout@v2
         with:
-          # Make sure the actual branch is checked out when running on pull requests
-          ref: ${{ github.head_ref }}
-
-      - name: Prettify code
-        uses: creyD/prettier_action@v4.2
+          # Need to set fetch depth to 0 for incremental diffs to grab the target branch
+          fetch-depth: '0'
+      - name: Run ESLint
+        uses: synergy-au/eslint-action@v1
         with:
-          # This part is also where you can pass other options, for example:
-          prettier_options: --write **/*.{js,md}
+          rules-path: './.eslintrc.json'
+          setup-from-package-json: 'true'
