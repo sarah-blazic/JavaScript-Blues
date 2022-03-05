@@ -25,7 +25,9 @@ jobs:
           node-version: 12
 
       # Install your dependencies
-      - run: npm ci
+      - run: |
+              npm ci
+              npm i eslint-loader@2.1.2
         working-directory: client
 
       # Run ESLint
