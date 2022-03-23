@@ -39,7 +39,9 @@ class Navbar extends Component {
         </ul>
         <div className="btnContainer">
           <Button className="loginBtn">
-            <Link to="/login" className="link">Login</Link>
+            <Link to="/login" className="link">
+              Login
+            </Link>
           </Button>
         </div>
       </nav>

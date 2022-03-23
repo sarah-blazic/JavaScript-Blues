@@ -20,7 +20,7 @@ function Login() {
         <form onSubmit={handleSubmit}>
           <label for="username">
             <input
-            placeholder="Username"
+              placeholder="Username"
               className="field"
               type="text"
               name="username"
@@ -30,14 +30,16 @@ function Login() {
           </label>
           <label>
             <input
-            placeholder="Password"
+              placeholder="Password"
               className="field"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
           </label>
-          <h4 className="forgotPass"><Link to="/forgotPassword">Forgot Password</Link></h4>
+          <h4 className="forgotPass">
+            <Link to="/forgotPassword">Forgot Password</Link>
+          </h4>
           <div>
             <input
               type="submit"
