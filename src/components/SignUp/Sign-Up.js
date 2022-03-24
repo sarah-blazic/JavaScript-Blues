@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 function SignUp() {
   // this doesnt do much right now but we have the username and password ready for authentication
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [name, setName] = useState("");
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -21,9 +22,9 @@ function SignUp() {
           <label for="username">
             <p>Username</p>
             <input
-              id="field"
+              id="username"
               type="text"
-              name="username"
+              className="field"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
@@ -31,9 +32,9 @@ function SignUp() {
           <label>
             <p>Password</p>
             <input
-              id="field"
+              id="password"
               type="password"
-              className="password"
+              className="field"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -41,11 +42,11 @@ function SignUp() {
           <label>
             <p>Confirm Password</p>
             <input
-              id="field"
+              id="passwordConfirm"
               type="password"
-              className="passwordConfirm"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              className="field"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
             />
           </label>
           <div>
