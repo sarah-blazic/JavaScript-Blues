@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 //import React, { useState } from 'react';
 import { Button } from "../Button";
 import { MenuItems } from "./MenuItems";
@@ -29,14 +30,20 @@ class Navbar extends Component {
           {MenuItems.map((item, index) => {
             return (
               <li key={index}>
-                <a className={item.cName} href={item.url}>
+                <Link className={item.cName} to={`${item.url}`}>
                   {item.title}
-                </a>
+                </Link>
               </li>
             );
           })}
         </ul>
-        <Button>Login</Button>
+        <div className="btnContainer">
+          <Button className="loginBtn">
+            <Link to="/login" className="link">
+              Login
+            </Link>
+          </Button>
+        </div>
       </nav>
     );
   }
