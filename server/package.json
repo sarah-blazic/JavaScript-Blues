@@ -20,6 +20,14 @@
         "mysql2": "^2.1.0",
         "sequelize": "^5.21.5"
     },
+    "eslintConfig": {
+        "parserOptions": {
+          "ecmaVersion": 2017
+        },
+        "env": {
+          "es6": true
+        }
+    },
     "devDependencies": {
         "mariadb": "^3.0.0",
         "nodemon": "^2.0.3",

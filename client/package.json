@@ -22,7 +22,13 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2017
+    },
+    "env": {
+      "es6": true
+    }
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.13.0",
