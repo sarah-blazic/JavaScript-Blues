@@ -3,7 +3,7 @@ const app = express();
 const path = require('path');
 const port = process.env.PORT || 3001;
 const session = require('express-session');
-const sequelize = require('./db/connect')
+const sequelize = require('./config/db/connect')
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 //middleware
