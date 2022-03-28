@@ -21,7 +21,8 @@ jobs:
       - run: npm ci
       - uses: sibiraj-s/action-eslint@v2
         with:
-          /* eslint-env es6 */
           eslint-args: '--ignore-path=.gitignore --quiet'
           extensions: 'js,jsx,ts,tsx'
           annotations: true
+        env:
+          es6: true
