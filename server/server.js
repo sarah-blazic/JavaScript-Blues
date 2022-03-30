@@ -1,31 +1,32 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const path = require('path');
-const port = process.env.PORT || 3001;
-const session = require('express-session');
-const sequelize = require('./config/db/connect')
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const path = require("path");
+const PORT = process.env.PORT || 3001;
+const session = require("express-session");
+const sequelize = require("./config/db/connect");
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 //middleware
-app.use(session({
-    secret: 'Super secret secret',
+app.use(
+  session({
+    secret: "Super secret secret", //change this!!!
     cookie: {},
     resave: false,
     saveUninitialized: true,
     store: new SequelizeStore({
-        db: sequelize
-    })
-}));
+      db: sequelize,
+    }),
+  })
+);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(require('./controllers/'));
+app.use(require("./routes/"));
 
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, '../client/build')));
-  }
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "client/build")));
+}
 
-app.get('/', (req, res) => res.send('hahaha wow!'));
-
+app.get("/", (req, res) => res.send("hahaha wow!"));
 
 /* TODO:
 1. write config for db connection
@@ -35,5 +36,5 @@ app.get('/', (req, res) => res.send('hahaha wow!'));
 */
 
 sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => console.log('Now listening'));
-  });
+  app.listen(PORT, () => console.log("Now listening"));
+});

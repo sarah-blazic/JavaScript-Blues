@@ -11,27 +11,28 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "bcrypt": "^4.0.1",
+        "bcrypt": "^5.0.1",
         "connect-session-sequelize": "^6.1.1",
         "dotenv": "^8.2.0",
         "express": "^4.17.1",
         "express-session": "^1.17.0",
         "faker": "^4.1.0",
-        "mysql2": "^2.1.0",
+        "pg": "^7.0.0",
+        "pg-hstore": "^2.3.4",
         "sequelize": "^5.21.5"
     },
     "eslintConfig": {
         "parserOptions": {
-          "ecmaVersion": 2017
+            "ecmaVersion": 2017
         },
         "env": {
-          "es6": true
+            "es6": true
         }
     },
     "devDependencies": {
+        "eslint": "^8.10.0",
         "mariadb": "^3.0.0",
         "nodemon": "^2.0.3",
-        "eslint": "^8.10.0",
         "prettier": "^2.2.1"
     }
 }
