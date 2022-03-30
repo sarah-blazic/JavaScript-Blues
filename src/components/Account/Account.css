@@ -1,0 +1,10 @@
+.info-wrapper {
+    margin-top: 80px;
+    margin-left: 80px;
+    border-color: rgb(84, 228, 149);
+    border: 3px solid rgb(82, 221, 69);
+    border-radius: 20px;
+    background-color: #e2efc3;
+    width: 600px;
+    height: 800px;
+}

@@ -1,0 +1,47 @@
+.footer-content {
+    position: relative;
+    padding: 40px 10vw;
+    padding-bottom: 80px;
+    background: linear-gradient(
+        90deg,
+        rgb(82, 221, 69) 0%,
+        rgb(84, 228, 149) 100%
+    );
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 60px;
+}
+
+.footer-content .padding{ /* Same height for logo if any */
+    height: 160px;
+}
+
+.footer-ul-container{
+    width: 45%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.category{
+    width: 200px;
+    list-style: none;
+}
+
+.category-title{
+    grid-column: span 2;
+    text-transform: capitalize;
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.category .footer-link{
+    text-decoration: none;
+    text-transform: capitalize;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.footer-link:hover{
+    color: #fff;
+}
