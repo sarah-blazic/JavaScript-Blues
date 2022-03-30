@@ -3,7 +3,7 @@ const router = require("express").Router();
 
 router.get('/', controller.getAllProducts);
 router.get('/:id', controller.getProduct);
-router.get('/category/:category', controller.getCategory);
+router.get('/tags/:tag', controller.getTaggedProducts);
 router.post('/', controller.newProduct);
 router.put('/:id', controller.updateProduct)
 
