@@ -1,7 +1,7 @@
 import "./App.css";
 import React from "react";
 import "react-router"; // ?
-import { BrowserRouter, Route, Link, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Link, Routes, Redirect } from "react-router-dom";
 import { AuthProvider, AuthContext } from "./AuthContext";
 import Button from "./components/Button.js";
 import Navbar from "./components/Navbar/Navbar";
@@ -34,12 +34,10 @@ function App() {
         <Navbar />
         <Routes>
           <Route exact path="/login" render={ props => <Login {...props } />} />
-          <Route exact path="/signup" render={ props => <Signup {...props } />} />
-          <PrivateRoute exact path="/dashboard" component={ Members } />
+          <Route exact path="/signup" render={ props => <SignUp {...props } />} />
+          <PrivateRoute exact path="/dashboard" component={ Catalog } />
           <Route path="/login" element={<Login />} />
           <Route path="/catalog" element={<Catalog />} />
-          <Route path="/signUp" element={<SignUp />} />
-          <Route path="/Login" element={<Login />} />
         </Routes>
       </div>
     </BrowserRouter>

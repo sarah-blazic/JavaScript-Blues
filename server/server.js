@@ -3,7 +3,7 @@ const app = express();
 const session = require("express-session");
 const path = require("path");
 const PORT = process.env.PORT || 8080;
-const session = require("express-session");
+const expsession = require("express-session");
 const sequelize = require("./models");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const passport = require("./config/passport");
@@ -12,7 +12,7 @@ app.use(express.static(path.join(__dirname, "../client/build")));
 
 //middleware
 app.use(
-  session({
+  expsession({
     secret: "Super secret secret", //change this!!!
     cookie: {},
     resave: true,
