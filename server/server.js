@@ -8,6 +8,8 @@ const sequelize = require("./models");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const passport = require("./config/passport");
 
+app.use(express.static(path.join(__dirname, "../client/build")));
+
 //middleware
 app.use(
   session({
@@ -26,11 +28,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(require("./routes/"));
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "client/build")));
-}
-
-app.get("/", (req, res) => res.send("hahaha wow!"));
+//app.get("/", (req, res) => res.send("hahaha wow!"));
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log("Now listening"));
