@@ -1,9 +1,3 @@
-.main-page-wrapper {
-    width:100%;
-    height:100%;
-    background-color:#e9eadc;
-}
-
 .about-us-wrapper {
     padding-left: 40px;
     padding-right: 40px;
@@ -21,14 +15,4 @@
     border-left: 5px groove;
     border-right: 5px groove;
     border-radius: 10px;
-}
-
-hr {
-    border: 0;
-    clear:both;
-    display:block;
-    width: 96%;
-    margin-left: 2%;               
-    background-color: black;
-    height: 1px;
 }
