@@ -1,12 +1,14 @@
-const db = require("../models");
+const controller = require('../../controllers/user');
+const router = require("express").Router();
 const passport = require("../../config/passport");
 
-module.exports = (app) => {
-  app.post("/api/login", passport.authenticate("local"), controller.login);
 
-  app.post("/api/signup", controller.signup);
+  router.post("/login", passport.authenticate("local"), controller.login);
 
-  app.get("/logout", controller.logout);
+  router.post("/signup", controller.signup);
 
-  app.get("/api/user_data", controller.getData);
-};
+  router.get("/logout", controller.logout);
+
+  router.get("/user_data", controller.getData);
+
+module.exports = router;

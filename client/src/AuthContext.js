@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios'
-import { Redirect } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 
 export const AuthContext = React.createContext();
 
@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
     }, [])
 
     const checkAuth = async () => {
-        Axios.get('api/user_data')
+        Axios.get('/api/users/user_data')
             .then(response => {
                 if (response.data.email) {
                     setIsAuth(true)
@@ -26,7 +26,7 @@ export const AuthProvider = ({ children }) => {
         Axios.get("/api/logout")
           .then(() => {
             setIsAuth(false);
-            return <Redirect to='/' />
+            return <Navigate to='/' />
           })
           .catch(err => console.log(err));
       };
