@@ -1,25 +1,16 @@
 import "./App.css";
-<<<<<<< HEAD
-import React from "react";
-import Navbar from "./components/Navbar/Navbar";
-import MainPage from "./components/MainPage/MainPage";
-import Account from "./components/Account/Account";
-import Catalog from "./components/catalog/Catalog";
-import Footer from "./components/Footer/Footer";
-import "react-router";
-import { BrowserRouter, Route, Link, Routes } from "react-router-dom";
-=======
 import React, { useContext } from "react";
 import "react-router"; // ?
-import { BrowserRouter, Route, Link, Routes, Redirect } from "react-router-dom";
+import { BrowserRouter, Route, Link, Routes, Navigate } from "react-router-dom";
 import { AuthProvider, AuthContext } from "./AuthContext";
+import MainPage from "./components/MainPage/MainPage";
+import Account from "./components/Account/Account";
 import Button from "./components/Button.js";
 import Navbar from "./components/Navbar/Navbar";
->>>>>>> 12b80d0f0a9ea36e747bdd7b47279208a54c72df
 import Login from "./components/Login/Login";
 import SignUp from "./components/SignUp/Sign-Up";
 import Catalog from "./components/catalog/Catalog";
-
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const adminUser = {};
@@ -32,12 +23,7 @@ function App() {
   // props, but using object destucturing.  the ...rest is literally the rest of 
   // the props that were not destructured. 
   const PrivateRoute = ({ component: Component, ...rest }) => (
-    <Route
-      {...rest}
-      render={props =>
-        isAuth ? <Component {...props} /> : <Redirect to="/login" />
-      }
-    />
+      isAuth ? <Catalog /> : <Navigate to="/login" />
   );
 
   return (
@@ -45,19 +31,14 @@ function App() {
       <div className="App">
         <Navbar />
         <Routes>
-<<<<<<< HEAD
           <Route path="/" element={<MainPage />} />
-          <Route path="/catalog" element={<Catalog />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signUp" element={<SignUp />} />
           <Route path="/account" element={<Account />} />
-=======
+          <Route path="/catalog" element={<Catalog />} />
           <Route exact path="/login" render={ props => <Login {...props } />} />
           <Route exact path="/signup" render={ props => <SignUp {...props } />} />
-          <PrivateRoute exact path="/dashboard" component={ Catalog } />
+          <Route exact path="/dashboard" component={<PrivateRoute />} />
           <Route path="/login" element={<Login />} />
           <Route path="/catalog" element={<Catalog />} />
->>>>>>> 12b80d0f0a9ea36e747bdd7b47279208a54c72df
         </Routes>
         <Footer />
       </div>

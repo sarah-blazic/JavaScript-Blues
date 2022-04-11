@@ -24,9 +24,7 @@ class Featured extends Component {
         for (var i = 1; i <= this.max_img; i++) {
             let name = "frog" + i + ".jpg";
             this.imgs.push(
-                <div className="image-holder">
-                    <img src={images[name]} alt={err_message} className="image"/>
-                </div>
+                <img src={images[name]} alt={err_message} className="image"/>
             );
             var dotRef = React.createRef();
             this.dots[i] = dotRef;
@@ -34,6 +32,8 @@ class Featured extends Component {
                 <FeaturedDot ref={dotRef} />
             );
         }
+
+        document.documentElement.style.setProperty("--total", this.max_img);
     }
 
     enable() {
@@ -53,13 +53,11 @@ class Featured extends Component {
                 return;
             if (new_curr > this.max_img)
                 return;
-            console.log("Hello2");
             this.curr_img = new_curr;
             this.enable_scroll = false;
-            document.querySelector(".image-container").scrollLeft += document.querySelector(".image-container").offsetWidth * direction;
-            this.enable_scroll = true;
+            document.documentElement.style.setProperty("--curr", this.curr_img - 1);
             this.update(new_curr);
-            this.forceUpdate();
+            this.enable_scroll = true;
         }
     }
 
@@ -69,7 +67,7 @@ class Featured extends Component {
 
     render () {
         return (<div className="featured-wrapper">
-                <div className="image-container">
+                <div className="image-container transform">
                     {this.imgs}
                 </div>
                 <div className="scroll-container">
