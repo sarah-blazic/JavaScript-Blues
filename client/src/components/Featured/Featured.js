@@ -1,16 +1,13 @@
 import React, { Component } from "react";
 import FeaturedDot from "./FeaturedDot";
 import "./Featured.css";
-import $ from 'jquery';
 
 class Featured extends Component {
 
     constructor (props) {
         super(props);
-        this.state = {
-            curr_img: 1,
-            enable_scroll: true
-        };
+        this.curr_img = 1;
+        this.enable_scroll = true;
         this.dots = [];
         this.max_img = 0;
         this.scroll = this.scroll.bind(this);
@@ -40,7 +37,7 @@ class Featured extends Component {
     }
 
     enable() {
-        this.setState({enable_scroll: true});
+        this.enable_scroll = true;
     }
 
     update(curr) {
@@ -50,24 +47,24 @@ class Featured extends Component {
     }
 
     scroll (direction) {
-        if (this.state.enable_scroll) {
-            var new_curr = this.state.curr_img + direction;
+        if (this.enable_scroll) {
+            var new_curr = this.curr_img + direction;
             if (new_curr < 1)
                 return;
             if (new_curr > this.max_img)
                 return;
-            this.setState({curr_img: new_curr});
-            this.setState({enable_scroll: false});
-            let far = $(".image-container").width()*direction;
-            let pos = $(".image-container").scrollLeft() + far;
-            $(".image-container").animate({scrollLeft: pos}, 1000, () => { this.enable() });
+            console.log("Hello2");
+            this.curr_img = new_curr;
+            this.enable_scroll = false;
+            document.querySelector(".image-container").scrollLeft += document.querySelector(".image-container").offsetWidth * direction;
+            this.enable_scroll = true;
             this.update(new_curr);
             this.forceUpdate();
         }
     }
 
     componentDidMount () {
-        this.dots[this.state.curr_img].current.setState({active: true});
+        this.dots[this.curr_img].current.setState({active: true});
     }
 
     render () {
