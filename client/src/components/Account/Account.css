@@ -1,0 +1,148 @@
+.account-container {
+    width: 90vw;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    margin: 5vw;
+    border-radius: 0.25rem;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.8) 0 0 10px;
+}
+
+h4 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    font-size: calc(1.275rem + 0.3vw);
+}
+  
+input {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+}
+  
+label {
+      font-size: 11px;
+}
+  
+.col {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0;
+    margin-right: -0.75rem;
+    margin-left: -0.75rem;
+}
+  
+.col > *{
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+    margin-top: 0;
+}
+  
+.btn-primary {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    border-radius: 15px;
+    width: 8.5rem;
+    height: 2rem;
+    box-shadow: none;
+    border: none;
+}
+  
+.btn-primary:hover{
+    color: #fff;
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+}
+  
+.btn-primary:focus, .btn-check:focus + .btn-primary {
+    color: #fff;
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+    box-shadow: 0 0 0 0.25rem rgba(49, 132, 253, 0.5);
+}
+  
+.profile-img {
+    border-radius: 50%;
+    margin-top: 3rem;
+}
+  
+.contact {
+    flex: 0 0 auto;
+    width: 50%;
+}
+  
+.address-container {
+    margin-top: 1rem;
+}
+  
+.address {
+    flex: 0 0 auto;
+    width: 100%;
+}
+  
+.account-info-container {
+    flex: 0 0 auto;
+    width: 25%;
+    border-right: 2px solid grey;
+}
+  
+.account-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+  
+.account-settings-container {
+    flex: 0 0 auto;
+    width: 41.66666667%;
+}
+  
+.account-settings {
+    padding: 1rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+  
+.heading-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+  
+.submit-button-container {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.contact-info {
+    margin-top: 0.5rem;
+}
+
+.email {
+    color: rgba(0, 0, 0, 0.5);
+}

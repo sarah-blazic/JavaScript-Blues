@@ -1,0 +1,25 @@
+.footer-content {
+    padding: 40px;
+    background: linear-gradient(
+        90deg,
+        rgb(82, 221, 69) 0%,
+        rgb(84, 228, 149) 100%
+    );
+    width: 100%;
+    margin-top: 60px;
+}
+
+.icon {
+    margin-left: auto;
+    margin-right: 20px;
+    display: inline-flexbox;
+    justify-content: flex-end;
+}
+
+.fa-brands {
+    color: white;
+}
+
+.icons-container {
+    float: right;
+}

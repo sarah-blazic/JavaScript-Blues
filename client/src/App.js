@@ -1,13 +1,15 @@
 import "./App.css";
 import React, { useContext } from "react";
-import "react-router"; // ?
-import { BrowserRouter, Route, Link, Routes, Redirect } from "react-router-dom";
+import { BrowserRouter, Route, Link, Routes, Navigate } from "react-router-dom";
 import { AuthProvider, AuthContext } from "./AuthContext";
+import MainPage from "./components/MainPage/MainPage";
+import Account from "./components/Account/Account";
 import Button from "./components/Button.js";
 import Navbar from "./components/Navbar/Navbar";
 import Login from "./components/Login/Login";
 import SignUp from "./components/SignUp/Sign-Up";
 import Catalog from "./components/catalog/Catalog";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const adminUser = {};
@@ -20,12 +22,7 @@ function App() {
   // props, but using object destucturing.  the ...rest is literally the rest of 
   // the props that were not destructured. 
   const PrivateRoute = ({ component: Component, ...rest }) => (
-    <Route
-      {...rest}
-      render={props =>
-        isAuth ? <Component {...props} /> : <Redirect to="/login" />
-      }
-    />
+      isAuth ? <Catalog /> : <Navigate to="/login" />
   );
 
   return (
@@ -33,12 +30,16 @@ function App() {
       <div className="App">
         <Navbar />
         <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/account" element={<Account />} />
+          <Route path="/catalog" element={<Catalog />} />
           <Route exact path="/login" render={ props => <Login {...props } />} />
           <Route exact path="/signup" render={ props => <SignUp {...props } />} />
-          <PrivateRoute exact path="/dashboard" component={ Catalog } />
+          <Route exact path="/dashboard" component={<PrivateRoute />} />
           <Route path="/login" element={<Login />} />
           <Route path="/catalog" element={<Catalog />} />
         </Routes>
+        <Footer />
       </div>
     </BrowserRouter>
   );
