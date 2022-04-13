@@ -31,7 +31,7 @@ function App() {
           <Route exact path="/" element={ <Catalog /> } />
           <Route path="/login" element={ <Login /> } />
           <Route path="/signup" element={ <SignUp />} />
-          <Route path="/dashboard" 
+          <Route path="/account" 
             element={
               <RequireAuth redirectTo="/login">
                 <Catalog />
