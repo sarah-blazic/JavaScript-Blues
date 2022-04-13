@@ -1,14 +1,19 @@
-const controller = require('../../controllers/user');
+const {
+  login,
+  signup,
+  logout,
+  getData
+} = require('../../controllers/user');
 const router = require("express").Router();
 const passport = require("../../config/passport");
 
 
-  router.post("/login", passport.authenticate("local"), controller.login);
+  router.post("/login", passport.authenticate("local"), login);
 
-  router.post("/signup", controller.signup);
+  router.post("/signup", signup);
 
-  router.get("/logout", controller.logout);
+  router.get("/logout", logout);
 
-  router.get("/user_data", controller.getData);
+  router.get("/user_data", getData);
 
 module.exports = router;
