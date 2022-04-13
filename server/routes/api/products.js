@@ -5,11 +5,12 @@ const {
     newProduct, 
     updateProduct
 } = require('../../controllers/product');
+const { getTaggedProducts } = require('../../controllers/tag');
 const router = require("express").Router();
 
 router.get('/', getAllProducts);
 router.get('/:id', getProduct);
-router.get('/tags/:tag', getTaggedProducts);
+router.get('/:tag', getTaggedProducts);
 router.post('/', newProduct);
 router.put('/:id', updateProduct);
 
