@@ -31,14 +31,5 @@
     "eslint": "^8.12.0",
     "eslint-plugin-react": "^7.29.2",
     "prettier": "^2.2.1"
-  },
-  "dependencies": {
-    "axios": "^0.26.1",
-    "dotenv": "^16.0.0",
-    "express": "^4.17.3",
-    "express-session": "^1.17.2",
-    "react-router-dom": "^6.3.0",
-    "react-scripts": "^5.0.0",
-    "sequelize": "^6.18.0"
   }
 }
