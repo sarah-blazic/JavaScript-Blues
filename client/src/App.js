@@ -1,7 +1,7 @@
 import "./App.css";
 import React, { useContext } from "react";
 import "react-router"; // ?
-import { BrowserRouter, Route, Link, Routes, Redirect } from "react-router-dom";
+import { BrowserRouter, Route, Link, Routes, Navigate } from "react-router-dom";
 import { AuthProvider, AuthContext } from "./AuthContext";
 import Button from "./components/Button.js";
 import Navbar from "./components/Navbar/Navbar";
@@ -19,25 +19,26 @@ function App() {
   // passed to this functional component is essentially the same as just passing 
   // props, but using object destucturing.  the ...rest is literally the rest of 
   // the props that were not destructured. 
-  const PrivateRoute = ({ component: Component, ...rest }) => (
-    <Route
-      {...rest}
-      render={props =>
-        isAuth ? <Component {...props} /> : <Redirect to="/login" />
-      }
-    />
-  );
+  const RequireAuth = ({ children, redirectTo, ...rest }) => {
+      return isAuth ? children : <Navigate to={ redirectTo } />;
+  };
 
   return (
     <BrowserRouter>
       <div className="App">
         <Navbar />
         <Routes>
-          <Route exact path="/login" render={ props => <Login {...props } />} />
-          <Route exact path="/signup" render={ props => <SignUp {...props } />} />
-          <PrivateRoute exact path="/dashboard" component={ Catalog } />
-          <Route path="/login" element={<Login />} />
-          <Route path="/catalog" element={<Catalog />} />
+          <Route exact path="/" element={ <Catalog /> } />
+          <Route path="/login" element={ <Login /> } />
+          <Route path="/signup" element={ <SignUp />} />
+          <Route path="/account" 
+            element={
+              <RequireAuth redirectTo="/login">
+                <Catalog />
+              </RequireAuth>
+            }
+          />
+          <Route exact path="/catalog" element={ <Catalog />} />
         </Routes>
       </div>
     </BrowserRouter>
