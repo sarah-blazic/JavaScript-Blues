@@ -34,7 +34,6 @@
     },
     "devDependencies": {
         "eslint": "^8.10.0",
-        "mariadb": "^3.0.0",
         "nodemon": "^2.0.3",
         "prettier": "^2.2.1"
     }
