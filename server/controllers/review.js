@@ -1,9 +1,3 @@
-router.get("/:productId", controller.getAllReviews);
-router.get("/:id", controller.getReview);
-router.post("/", controller.newReview);
-router.put("/:id", controller.updateReview);
-router.delete("/:id", controller.deleteReview);
-
 const db = require("../models/review");
 
 module.exports = {
