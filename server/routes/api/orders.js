@@ -1,9 +1,9 @@
-const {
+import {
     getAllOrders, 
     getOrder, 
     newOrder, 
     updateOrder
-} = require('../../controllers/order');
+} from '../../controllers/order';
 const router = require("express").Router();
 
 router.get('/', getAllOrders);

@@ -1,10 +1,10 @@
-const {
+import {
     getAllReviews,
     getReview,
     newReview,
     updateReview,
     deleteReview
-} = require('../../controllers/review');
+} from '../../controllers/review';
 const router = require("express").Router();
 
 router.get('/:productId', getAllReviews);
