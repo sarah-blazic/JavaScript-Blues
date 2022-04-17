@@ -1,10 +1,10 @@
-import { 
+const {
     getAllProducts, 
     getProduct, 
     getTaggedProducts, 
     newProduct, 
-    updateProduct 
-} from '../../controllers/product';
+    updateProduct
+} = require('../../controllers/product');
 const router = require("express").Router();
 
 router.get('/', getAllProducts);
@@ -13,4 +13,4 @@ router.get('/:tag', getTaggedProducts);
 router.post('/', newProduct);
 router.put('/:id', updateProduct);
 
-export default router;
+module.exports = router;

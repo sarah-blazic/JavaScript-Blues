@@ -1,9 +1,9 @@
-import {
+const {
   login,
   signup,
   logout,
   getData
-} from '../../controllers/user';
+} = require('../../controllers/user');
 const router = require("express").Router();
 const passport = require("../../config/passport");
 
