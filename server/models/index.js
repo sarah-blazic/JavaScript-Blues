@@ -3,8 +3,9 @@
 const fs = require("fs");
 const path = require("path");
 const Sequelize = require("sequelize");
-const basename = path.basename(module.filename);
 const sequelize = require("../config/db/connect");
+const basename = path.basename(module.filename);
+
 let instance = {};
 
 fs.readdirSync(__dirname)
@@ -25,5 +26,4 @@ Object.keys(instance).forEach((modelName) => {
 
 instance.sequelize = sequelize;
 instance.Sequelize = Sequelize;
-
 module.exports = instance;

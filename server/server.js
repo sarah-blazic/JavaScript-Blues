@@ -1,34 +1,40 @@
-const express = require("express");
-const app = express();
-const session = require("express-session");
 const path = require("path");
-const PORT = process.env.PORT || 8080;
-const expsession = require("express-session");
+const express = require("express");
+const session = require("express-session");
+require('dotenv').config();
+
 const db = require("./models");
-//const SequelizeStore = require("connect-session-sequelize")(session.Store);
+const routes = require("./routes/");
 const passport = require("./config/passport");
+
+const app = express();
+const PORT = process.env.PORT || 8080;
 
 app.use(express.static(path.join(__dirname, "../client/build")));
 
 //middleware
-/*app.use(
-  expsession({
+app.use(
+  session({
     secret: "Super secret secret", //change this!!!
-    resave: false,
-    //saveUninitialized: true,
-    store: new SequelizeStore({
-      db: sequelize,
-    }),
+    resave: true,
+    saveUninitialized: true
   })
-);*/
+);
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(require("./routes/"));
+app.use(routes);
 
-//app.get("/", (req, res) => res.send("hahaha wow!"));
 
-db.sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log("Now listening"));
-});
+db.sequelize.sync({ force: false })
+  .then(() => {
+    console.log('\n*************************************');
+    console.log(`${process.env.DB_NAME} database connected`);
+  })
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`App listening on PORT ${PORT}`);
+      console.log('*************************************\n');
+    });
+  });
