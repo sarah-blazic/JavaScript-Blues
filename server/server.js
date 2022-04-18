@@ -27,13 +27,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(routes);
 
 (async () => {
-  await db.sequelize.sync({ alter: true, logging: console.log }).then(() => {
-  console.log("\n*************************************");
-  console.log(`${process.env.DB_NAME} database connected`);
+  await db.sequelize.sync({ force: true, logging: console.log }).then(() => {
+  console.log("🥞 Heroku database connected");
 });
 })();
 
 app.listen(PORT, () => {
-  console.log(`App listening on PORT ${PORT}`);
-  console.log("*************************************\n");
+  console.log(`✨ App listening on PORT ${PORT} ✨`);
 });

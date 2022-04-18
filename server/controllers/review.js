@@ -1,4 +1,4 @@
-const db = require("../models/review");
+const db = require("../models");
 
 module.exports = {
   getAllReviews: function (req, res) {
