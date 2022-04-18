@@ -17,7 +17,7 @@ class Navbar extends Component {
       <nav className="NavbarItems">
         <h1 className="navbar-logo">
           ONLYFROGS
-          <i class="fa-solid fa-frog"></i>
+          <i className="fa-solid fa-frog"></i>
         </h1>
 
         <div className="menu-icon" onClick={this.handleClick}>

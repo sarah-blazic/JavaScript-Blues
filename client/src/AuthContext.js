@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
     }, [])
 
     const checkAuth = async () => {
-        Axios.get('api/user_data')
+        Axios.get('/api/users/user_data')
             .then(response => {
                 if (response.data.email) {
                     setIsAuth(true)

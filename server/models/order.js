@@ -1,50 +1,62 @@
 module.exports = function (sequelize, DataTypes) {
-    const Order = sequelize.define("Order", {
-      customer: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-          len: [1],
-        },
-      },
-      shipping: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [1],
-        },
-      },
-      price: {
-        type: DataTypes.DECIMAL(10, 2),
-        allowNull: false,
-        validate: {
-          isDecimal: true,
-        },
-      },
-      inventory: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        defaultValue: 0,
-        validate: {
-          isInteger: true,
-        },
-      },
-      rating: {
-        type: DataTypes.DECIMAL(10,1),
-        allowNull: false,
-        defaultValue: 0.0,
-        validate: {
-          isDecimal: true,
-        },
-      },
-      image: {
-          type: DataTypes.STRING,
-          allowNull: true,
-          validate: {
-              isUrl: true
-          }
+  const Order = sequelize.define("Order", {
+    customer: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        len: [1],
       }
-    });
-    return Order;
-  };
-  
+    },
+    shippingType: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1],
+      }
+    },
+    subtotal: {
+      type: DataTypes.DECIMAL(10, 2),
+      allowNull: false,
+      validate: {
+        isDecimal: true,
+      }
+    },
+    tax: {
+      type: DataTypes.DECIMAL(10, 2),
+      allowNull: false,
+      validate: {
+        isDecimal: true,
+      }
+    },
+    shipCost: {
+      type: DataTypes.DECIMAL(10, 2),
+      allowNull: false,
+      defaultValue: 0,
+      validate: {
+        isDecimal: true,
+      }
+    },
+    orderDate: {
+      type: DataTypes.DATEONLY,
+      allowNull: false,
+      validate: {
+        isDate: true,
+      }
+    },
+    shipDate: {
+      type: DataTypes.DATEONLY,
+      allowNull: true,
+      validate: {
+        isDate: true,
+      }
+    },
+    items: {
+      type: DataTypes.ARRAY(DataTypes.INTEGER),
+      allowNull: false,
+      validate: {
+        len: [1],
+      }
+    }
+  });
+  return Order;
+};
