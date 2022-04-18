@@ -26,10 +26,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(routes);
 
-db.sequelize.sync({ force: false, logging: console.log }).then(() => {
+(async () => {
+  await db.sequelize.sync({ alter: true, logging: console.log }).then(() => {
   console.log("\n*************************************");
   console.log(`${process.env.DB_NAME} database connected`);
 });
+})();
 
 app.listen(PORT, () => {
   console.log(`App listening on PORT ${PORT}`);
