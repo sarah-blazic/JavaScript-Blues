@@ -6,7 +6,7 @@
         rgb(84, 228, 149) 100%
     );
     width: 100%;
-    margin-top: 60px;
+    overflow-y: hidden!important;
 }
 
 .icon {
@@ -14,12 +14,17 @@
     margin-right: 20px;
     display: inline-flexbox;
     justify-content: flex-end;
+    overflow-y: hidden!important;
+    width: 20px;
+    height: 20px;
 }
 
 .fa-brands {
     color: white;
+    overflow-y: hidden!important;
 }
 
 .icons-container {
     float: right;
+    overflow-y: hidden!important;
 }

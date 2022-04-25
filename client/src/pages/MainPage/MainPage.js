@@ -14,7 +14,7 @@ Quisque pretium porttitor ex eu cursus. Mauris id ipsum sit amet arcu congue fer
 class MainPage extends Component {
     render () {
         return (
-        <div clasName="main-page-wrapper">
+        <div className="main-page-wrapper">
             <Featured />
             <hr />
             <BlockText text={about_us_content} headerText="About Us" />

@@ -17,19 +17,19 @@ class Featured extends Component {
         let images = {};
         r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
         this.max_img = Object.keys(images).length;
-        console.log(this.max_img);
+        
         this.imgs = [];
         this.points = [];
         let err_message = "Image not found.";
         for (var i = 1; i <= this.max_img; i++) {
             let name = "frog" + i + ".jpg";
             this.imgs.push(
-                <img src={images[name]} alt={err_message} className="image"/>
+                <img key={name} src={images[name]} alt={err_message} className="image"/>
             );
             var dotRef = React.createRef();
             this.dots[i] = dotRef;
             this.points.push(
-                <FeaturedDot ref={dotRef} />
+                <FeaturedDot key={name} ref={dotRef} />
             );
         }
 
@@ -62,7 +62,8 @@ class Featured extends Component {
     }
 
     componentDidMount () {
-        this.dots[this.curr_img].current.setState({active: true});
+        //this.curr_img = getComputedStyle(document.documentElement).getPropertyValue("--curr") + 1;
+        //this.dots[this.curr_img].current.setState({active: true});
     }
 
     render () {

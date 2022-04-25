@@ -10,7 +10,7 @@ class FeaturedDot extends Component {
     }
 
     render () {
-        return ( <i class={(this.state.active ? "fa-solid" : "fa-regular") + " fa-circle featured-point"} /> );
+        return ( <i className={(this.state.active ? "fa-solid" : "fa-regular") + " fa-circle featured-point"} /> );
     }
 }
 

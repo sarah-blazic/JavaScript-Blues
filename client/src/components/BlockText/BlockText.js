@@ -9,9 +9,11 @@ const BlockText = (props) => {
     textArr.pop();
     var textHTML = [];
 
+    var i = 0;
     for (var line of textArr) {
-        textHTML.push(<p>{line}</p>);
-        textHTML.push(<br />);
+        textHTML.push(<p key={"line_text" + i}>{line}</p>);
+        textHTML.push(<br key={"line_break" + i} />);
+        i += 1;
     }
 
     textHTML.pop();
