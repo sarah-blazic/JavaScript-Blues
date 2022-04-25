@@ -1,5 +1,4 @@
 import { React, useState } from "react";
-import { Button } from "../Button";
 import "./Sign-Up.css";
 import { Link } from "react-router-dom";
 

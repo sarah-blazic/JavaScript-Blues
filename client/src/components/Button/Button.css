@@ -9,6 +9,7 @@
   outline: none;
   border: none;
   cursor: pointer;
+  overflow-y: hidden!important;
 }
 
 .btn:hover {

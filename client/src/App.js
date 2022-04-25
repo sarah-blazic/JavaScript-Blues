@@ -2,13 +2,14 @@ import "./App.css";
 import React, { useContext } from "react";
 import { BrowserRouter, Route, Link, Routes, Navigate } from "react-router-dom";
 import { AuthProvider, AuthContext } from "./AuthContext";
-import MainPage from "./components/MainPage/MainPage";
-import Account from "./components/Account/Account";
-import Button from "./components/Button.js";
+// Pages
+import Account from "./pages/Account/Account";
+import MainPage from "./pages/MainPage/MainPage";
+import Catalog from "./pages/Catalog/Catalog";
+import Login from "./pages/Login/Login";
+import SignUp from "./pages/SignUp/Sign-Up";
+// Components
 import Navbar from "./components/Navbar/Navbar";
-import Login from "./components/Login/Login";
-import SignUp from "./components/SignUp/Sign-Up";
-import Catalog from "./components/catalog/Catalog";
 import Footer from "./components/Footer/Footer";
 
 function App() {

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 //import React, { useState } from 'react';
-import { Button } from "../Button";
+import { Button } from "../Button/Button";
 import { MenuItems } from "./MenuItems";
 import "./Navbar.css";
 

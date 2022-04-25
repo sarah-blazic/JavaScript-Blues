@@ -1,40 +1,34 @@
-import React, { Component } from "react";
 import "./BlockText.css";
 
-class BlockText extends Component {
-    constructor (props) {
-        super(props);
+const BlockText = (props) => {
 
-        this.headerText = props.headerText;
+    var headerText = props.headerText;
 
-        var textArr = props.text.split("\n");
-        textArr.splice(0, 1);
-        textArr.pop();
-        this.textHTML = [];
+    var textArr = props.text.split("\n");
+    textArr.splice(0, 1);
+    textArr.pop();
+    var textHTML = [];
 
-        for (var line of textArr) {
-            this.textHTML.push(<p>{line}</p>);
-            this.textHTML.push(<br />);
-        }
-
-        this.textHTML.pop();
+    for (var line of textArr) {
+        textHTML.push(<p>{line}</p>);
+        textHTML.push(<br />);
     }
 
-    render () {
-        var header = "";
-        if (!(this.headerText === "")) {
-            header = <h1 className="title">{this.headerText}</h1>
-        }
+    textHTML.pop();
 
-        return (
-        <div className="about-us-wrapper">
-            {header}
-            <div className="text-wrapper">
-                {this.textHTML}
-            </div>
+    var header = "";
+    if (!(headerText === "")) {
+        header = <h1 className="title">{headerText}</h1>
+    }
+
+    return (
+    <div className="about-us-wrapper">
+        {header}
+        <div className="text-wrapper">
+            {textHTML}
         </div>
-        );
-    }
+    </div>
+    );
 }
 
-export default BlockText;
+export { BlockText };

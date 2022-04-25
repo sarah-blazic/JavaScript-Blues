@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Featured from "../Featured/Featured";
-import BlockText from "../BlockText/BlockText";
+import Featured from "../../components/Featured/Featured";
+import { BlockText }  from "../../components/BlockText/BlockText";
 import "./MainPage.css";
 
 const about_us_content = `
