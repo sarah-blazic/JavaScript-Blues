@@ -1,4 +1,4 @@
-const db = require("../models/order");
+const db = require("../models");
 
 module.exports = {
 
