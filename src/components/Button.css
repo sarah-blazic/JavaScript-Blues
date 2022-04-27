@@ -1,8 +1,15 @@
 :root {
-  --primary: #3acbf7;
+  --primary: #4ad9e4;
+  text-decoration: none;
+}
+.link{
+  text-decoration: none;
+  color: white;
+  font-size: large;
 }
 
 .btn {
+  text-decoration: none;
   padding: 8px 20px;
   border-radius: 4px;
   background-color: var(--primary);
@@ -14,8 +21,8 @@
 .btn:hover {
   padding: 8px 20px;
   transition: all 0.3s ease-out;
-  background: #fff;
-  color: #6568f4;
+  background: #15771d;
+  color: white;
   transition: 250ms;
 }
 
