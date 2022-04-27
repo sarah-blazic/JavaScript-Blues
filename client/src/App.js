@@ -10,6 +10,12 @@ import Login from "./components/Login/Login";
 import SignUp from "./components/SignUp/Sign-Up";
 import Catalog from "./components/catalog/Catalog";
 import Footer from "./components/Footer/Footer";
+import SearchBar from "./components/Search-Bar/Search-Bar";
+import product_card from "./components/catalog/product_data";
+import ProductPage from "./components/ProductPage/ProductPage";
+import Cart from "./components/Cart/Cart";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Container, Row, Col} from 'react-bootstrap'
 
 function App() {
   const adminUser = {};
@@ -29,11 +35,14 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Navbar />
+        <SearchBar placeholder="Enter a Product..." data={product_card}></SearchBar>
         <Routes>
           <Route exact path="/" element={ <MainPage /> } />
           <Route path="/catalog" element={ <Catalog /> } />
           <Route path="/login" element={ <Login /> } />
           <Route path="/signup" element={ <SignUp />} />
+          <Route path="/productPage" element={ <ProductPage />} />
+          <Route path="/cart" element={ <Cart />} />
           <Route path="/account" 
             element={
               <RequireAuth redirectTo="/login">

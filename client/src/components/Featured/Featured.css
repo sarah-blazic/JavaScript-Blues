@@ -79,7 +79,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    margin-top: 2%;
     user-select: none;
     background: none;
 }

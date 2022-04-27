@@ -13,7 +13,7 @@
   /* Fixed Element CSS */
   position:fixed;
   top:0;
-  z-index:100;
+  z-index:4;
   width:100%;
 }
 
@@ -23,13 +23,11 @@
   margin: 20px;
   cursor: pointer;
   display: inline-block;
+  min-width: 280px;
+  width: 400px;
 }
 
-<<<<<<< HEAD:src/components/Navbar/Navbar.css
-.fa-frog{
-=======
 .fa-frog {
->>>>>>> f603d47b23a17cacbddbf23cb40cececb570c668:client/src/components/Navbar/Navbar.css
   display: inline-block;
 }
 
@@ -154,19 +152,6 @@
   Button {
     display: none;
   }
-<<<<<<< HEAD:src/components/Navbar/Navbar.css
-  .loginBtn{
-    text-decoration: none;
-    background-color: #fffe00;
-  }
-  .loginBtn:hover{
-    background: #15771d !important;
-  }
-  link{
-    text-decoration: none;
-  }
-}
-=======
   .loginBtn {
     text-decoration: none;
     background-color: #fffe00;
@@ -178,4 +163,3 @@
     text-decoration: none;
   }
 }
->>>>>>> f603d47b23a17cacbddbf23cb40cececb570c668:client/src/components/Navbar/Navbar.css
