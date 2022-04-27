@@ -1,0 +1,41 @@
+{
+    "name": "mern-server",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js",
+        "watch": "nodemon",
+        "seed": "node util/productSeed.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "bcrypt": "^5.0.1",
+        "connect-session-sequelize": "^6.1.1",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "express-session": "^1.17.0",
+        "faker": "^4.1.0",
+        "passport": "^0.5.2",
+        "passport-local": "^1.0.0",
+        "pg": "^8.0.2",
+        "pg-hstore": "^2.3.4",
+        "sequelize": "^6.19.0"
+    },
+    "eslintConfig": {
+        "parserOptions": {
+            "ecmaVersion": 2017
+        },
+        "env": {
+            "es6": true
+        }
+    },
+    "devDependencies": {
+        "eslint": "^8.10.0",
+        "nodemon": "^2.0.3",
+        "prettier": "^2.2.1",
+        "sequelize-cli": "^6.4.1"
+    }
+}

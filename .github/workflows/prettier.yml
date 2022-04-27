@@ -1,0 +1,27 @@
+name: Prettier
+
+# This action works with pull requests and pushes
+on:
+  pull_request:
+      branches:
+        - main
+        - sarah-blazic-patch-1
+  push:
+    branches:
+      - main
+      - sarah-blazic-patch-1
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+        with:
+          # Need to set fetch depth to 0 for incremental diffs to grab the target branch
+          fetch-depth: '0'
+      - name: Run ESLint
+        uses: synergy-au/eslint-action@v1
+        with:
+          rules-path: './.eslintrc.json'
+          setup-from-package-json: 'true'

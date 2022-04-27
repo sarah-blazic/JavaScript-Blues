@@ -1,0 +1,181 @@
+.NavbarItems {
+  background: linear-gradient(
+    90deg,
+    rgb(82, 221, 69) 0%,
+    rgb(84, 228, 149) 100%
+  );
+  height: 7vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+
+  /* Fixed Element CSS */
+  position:fixed;
+  top:0;
+  z-index:100;
+  width:100%;
+}
+
+.navbar-logo {
+  color: #fff;
+  justify-self: start;
+  margin: 20px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+<<<<<<< HEAD:src/components/Navbar/Navbar.css
+.fa-frog{
+=======
+.fa-frog {
+>>>>>>> f603d47b23a17cacbddbf23cb40cececb570c668:client/src/components/Navbar/Navbar.css
+  display: inline-block;
+}
+
+.fa-react {
+  margin-left: 0.5rem;
+  font-size: 1.6rem;
+}
+
+.nav-menu {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  grid-gap: 10px;
+  list-style: none;
+  text-align: center;
+  width: 70vw;
+  justify-content: end;
+  margin-right: 2rem;
+}
+
+.nav-links {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+}
+
+.nav-links:hover {
+  background-color: #15771d;
+  border-radius: 4px;
+  transition: all 0.2s ease-out;
+}
+
+.fa-bars {
+  color: #fff;
+}
+
+.nav-links-mobile {
+  display: none;
+}
+
+.menu-icon {
+  display: none;
+}
+
+@media screen and (max-width: 960px) {
+  .NavbarItems {
+    position: relative;
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 500px;
+    position: absolute;
+    top: 80px;
+    left: -100%;
+    opacity: 1;
+    transition: all 0.5s ease;
+  }
+
+  .nav-menu.active {
+    background: #15771d;
+    left: 0;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 1;
+  }
+
+  .nav-links {
+    text-align: center;
+    padding: 2srem;
+    width: 100%;
+    display: table;
+  }
+
+  .nav-links:hover {
+    background-color: #15771d;
+    border-radius: 0;
+  }
+
+  .navbar-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(25%, 50%);
+  }
+
+  .menu-icon {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-100%, 60%);
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+
+  .fa-times {
+    color: #fff;
+    font-size: 2rem;
+  }
+
+  .nav-links-mobile {
+    display: block;
+    text-align: center;
+    padding: 1.5rem;
+    margin: 2rem auto;
+    border-radius: 4px;
+    width: 80%;
+    background: #4ad9e4;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.5rem;
+  }
+
+  .nav-links-mobile:hover {
+    background: #fff;
+    color: #15771d;
+    transition: 250ms;
+  }
+
+  Button {
+    display: none;
+  }
+<<<<<<< HEAD:src/components/Navbar/Navbar.css
+  .loginBtn{
+    text-decoration: none;
+    background-color: #fffe00;
+  }
+  .loginBtn:hover{
+    background: #15771d !important;
+  }
+  link{
+    text-decoration: none;
+  }
+}
+=======
+  .loginBtn {
+    text-decoration: none;
+    background-color: #fffe00;
+  }
+  .loginBtn:hover {
+    background: #15771d !important;
+  }
+  link {
+    text-decoration: none;
+  }
+}
+>>>>>>> f603d47b23a17cacbddbf23cb40cececb570c668:client/src/components/Navbar/Navbar.css

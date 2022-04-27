@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "ecom-project",
   "version": "0.1.0",
   "private": true,
@@ -21,38 +22,39 @@
     "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4"
   },
+=======
+  "name": "comp-380-e-commerce",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/server.js",
+>>>>>>> f603d47b23a17cacbddbf23cb40cececb570c668
   "scripts": {
+    "start": "node server/server.js",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && npm run seed",
+    "build": "cd client && npm run build",
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
-    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "parserOptions": {
+      "ecmaVersion": 2017
+    },
+    "env": {
+      "es6": true
+    }
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.13.0",
     "@typescript-eslint/parser": "^5.13.0",
-    "eslint": "^8.10.0",
+    "concurrently": "^5.1.0",
+    "eslint": "^8.12.0",
     "eslint-plugin-react": "^7.29.2",
     "prettier": "^2.2.1"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
   }
 }
