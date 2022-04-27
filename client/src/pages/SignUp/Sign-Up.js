@@ -2,7 +2,7 @@ import { React, useState } from "react";
 import "./Sign-Up.css";
 import { Link } from "react-router-dom";
 
-function SignUp() {
+const SignUp = () => {
   // this doesnt do much right now but we have the username and password ready for authentication
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");

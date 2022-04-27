@@ -1,29 +1,27 @@
 import React, { Component } from 'react';
 import "./Account.css";
 
-class Account extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            img: '',
-            username: '',
-            email: '',
-            first_name: '',
-            last_name: '',
-            phone_number: '',
-            address: {
-                line_1: '',
-                line_2: '',
-                postal_code: '',
-                state: '',
-                country: '',
-                state: '',
-                city: ''
-            }
-        };
-    }
+const Account = () => {
 
-    getDefaults() {
+    let info = {
+        img: '',
+        username: '',
+        email: '',
+        first_name: '',
+        last_name: '',
+        phone_number: '',
+        address: {
+            line_1: '',
+            line_2: '',
+            postal_code: '',
+            state: '',
+            country: '',
+            state: '',
+            city: ''
+        }
+    };
+
+    function getDefaults() {
        return {
             img: 'https://riverlegacy.org/wp-content/uploads/2021/07/blank-profile-photo.jpeg',
             username: 'testUser',
@@ -42,9 +40,9 @@ class Account extends Component {
        };
     }
 
-    render () {
-        const {img,username,email,first_name,last_name,phone_number,address} = (this.state.username == '') ? this.getDefaults() : this.state;
-        return (<div className="account-container">
+    const {img,username,email,first_name,last_name,phone_number,address} = (info.username == '') ? getDefaults() : info;
+
+    return (<div className="account-container">
         <div className="col">
             <div className="account-info-container">
                 <div className="account-info">
@@ -77,7 +75,6 @@ class Account extends Component {
             </div>
         </div>
     </div>);
-    }
 }
 
 export default Account;

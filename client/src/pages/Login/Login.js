@@ -2,7 +2,7 @@ import { React, useState } from "react";
 import "./Login.css";
 import { Link } from "react-router-dom";
 
-function Login() {
+const Login = () => {
   // this doesnt do much right now but we have the username and password ready for authentication
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");

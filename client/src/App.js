@@ -26,6 +26,15 @@ function App() {
       return isAuth ? children : <Navigate to={ redirectTo } />;
   };
 
+  /* Put this in place of the normal account Route
+    <Route path="/account" 
+            element={
+              <RequireAuth redirectTo="/login">
+                <Account />
+              </RequireAuth>
+            }
+          />
+  */
   return (
     <BrowserRouter>
       <div className="App">
@@ -35,13 +44,7 @@ function App() {
           <Route path="/catalog" element={ <Catalog /> } />
           <Route path="/login" element={ <Login /> } />
           <Route path="/signup" element={ <SignUp />} />
-          <Route path="/account" 
-            element={
-              <RequireAuth redirectTo="/login">
-                <Account />
-              </RequireAuth>
-            }
-          />
+          <Route path="/account" element={ <Account /> } />
         </Routes>
         <Footer />
       </div>

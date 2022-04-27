@@ -33,4 +33,4 @@ const BlockText = (props) => {
     );
 }
 
-export { BlockText };
+export default BlockText;

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Featured from "../../components/Featured/Featured";
-import { BlockText }  from "../../components/BlockText/BlockText";
+import BlockText  from "../../components/BlockText/BlockText";
 import "./MainPage.css";
 
 const about_us_content = `
@@ -11,15 +11,13 @@ Aenean iaculis facilisis urna, ac vestibulum nunc tincidunt at. Suspendisse tris
 Quisque pretium porttitor ex eu cursus. Mauris id ipsum sit amet arcu congue fermentum vel ac sapien. Ut suscipit lobortis posuere. In vehicula augue id tempus convallis. Suspendisse ac nibh ut enim varius pretium. Sed vitae eros leo. Morbi varius orci est, eu tincidunt risus sodales hendrerit.
 `;
 
-class MainPage extends Component {
-    render () {
-        return (
-        <div className="main-page-wrapper">
-            <Featured />
-            <hr />
-            <BlockText text={about_us_content} headerText="About Us" />
-        </div>);
-    }
+const MainPage = () => {
+    return (
+    <div className="main-page-wrapper">
+        <Featured />
+        <hr />
+        <BlockText text={about_us_content} headerText="About Us" />
+    </div>);
 }
 
 export default MainPage;
