@@ -10,6 +10,8 @@ import Login from "./components/Login/Login";
 import SignUp from "./components/SignUp/Sign-Up";
 import Catalog from "./components/catalog/Catalog";
 import Footer from "./components/Footer/Footer";
+import HostedPaymentPage from "./components/HostedPaymentPage/PreviewPage";
+import PreviewPage from "./components/HostedPaymentPage/PreviewPage";
 
 function App() {
   const adminUser = {};
@@ -31,6 +33,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route exact path="/" element={ <MainPage /> } />
+          <Route exact path="/payment" element={ <PreviewPage /> } />
           <Route path="/catalog" element={ <Catalog /> } />
           <Route path="/login" element={ <Login /> } />
           <Route path="/signup" element={ <SignUp />} />
