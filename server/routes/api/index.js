@@ -1,3 +1,4 @@
+const path = require("path");
 const router = require('express').Router();
 const isAuthenticated = require('../../config/middleware/isAuthenticated');
 const userRoutes = require('./users');
@@ -12,7 +13,7 @@ router.use('/products', productRoutes);
 router.get('/account', isAuthenticated, (req, res) => { res.status(200); });
 console.log("api hit");
 router.use(function(req, res) {
-    res.sendFile(path.join(__dirname, "../../client/build/index.html"));
+    res.sendFile(path.join(__dirname, "../../../client/build/index.html"));
 });
 
 module.exports = router;
