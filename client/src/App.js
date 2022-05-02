@@ -10,6 +10,8 @@ import Login from "./components/Login/Login";
 import SignUp from "./components/SignUp/Sign-Up";
 import Catalog from "./components/catalog/Catalog";
 import Footer from "./components/Footer/Footer";
+import SearchBar from "./components/Search-Bar/Search-Bar";
+import product_card from "./components/catalog/product_data";
 
 function App() {
   const adminUser = {};
@@ -29,6 +31,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Navbar />
+        <SearchBar placeholder="Enter a Book Name..." data={product_card}/>
         <Routes>
           <Route exact path="/" element={ <MainPage /> } />
           <Route path="/catalog" element={ <Catalog /> } />
