@@ -5,6 +5,7 @@ require("dotenv").config();
 
 const db = require("./models");
 const routes = require("./routes/");
+console.log(routes);
 const passport = require("./config/passport");
 
 const app = express();
@@ -27,7 +28,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(routes);
 
 (async () => {
-  await db.sequelize.sync({ force: true, logging: console.log }).then(() => {
+  await db.sequelize.sync({ force: false }).then(() => {
   console.log("🥞 Heroku database connected");
 });
 })();

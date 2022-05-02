@@ -1,6 +1,6 @@
 import React from "react";
 import product_card from "./product_data";
-import "./catalog.css";
+import "./Catalog.css";
 import logo from "./product.png";
 
 function Catalog() {

@@ -1,36 +1,34 @@
 import "./App.css";
 import React, { useContext } from "react";
-import { BrowserRouter, Route, Link, Routes, Navigate } from "react-router-dom";
+import { useNavigate, Route, Routes, Navigate } from "react-router-dom";
 import { AuthProvider, AuthContext } from "./AuthContext";
 import MainPage from "./components/MainPage/MainPage";
 import Account from "./components/Account/Account";
-import Button from "./components/Button.js";
 import Navbar from "./components/Navbar/Navbar";
 import Login from "./components/Login/Login";
-import SignUp from "./components/SignUp/Sign-Up";
-import Catalog from "./components/catalog/Catalog";
+import Signup from "./components/Signup/Signup";
+import Catalog from "./components/Catalog/Catalog";
 import Footer from "./components/Footer/Footer";
-import SearchBar from "./components/Search-Bar/Search-Bar";
-import product_card from "./components/catalog/product_data";
+import SearchBar from "./components/SearchBar/SearchBar";
+import product_card from "./components/Catalog/product_data";
 import ProductPage from "./components/ProductPage/ProductPage";
 import Cart from "./components/Cart/Cart";
 
 function App() {
-  const adminUser = {};
-  const { isAuth, setIsAuth } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const { isAuth } = useContext(AuthContext);
   console.log("App auth: ", isAuth);
 
-  // here we are ceating a private route wrapper to prevent front end routing to 
+  // here we are ceating a private route wrapper to prevent front end routing to
   // restricted pages.  The ({ component: Component, ...rest })  argument that is
-  // passed to this functional component is essentially the same as just passing 
-  // props, but using object destucturing.  the ...rest is literally the rest of 
-  // the props that were not destructured. 
+  // passed to this functional component is essentially the same as just passing
+  // props, but using object destucturing.  the ...rest is literally the rest of
+  // the props that were not destructured.
   const RequireAuth = ({ children, redirectTo, ...rest }) => {
-      return isAuth ? children : <Navigate to={ redirectTo } />;
+    return isAuth ? children : <Navigate to={redirectTo} />;
   };
 
   return (
-    <BrowserRouter>
       <div className="App">
         <Navbar />
         <SearchBar placeholder="Enter a Frogs Name..." data={product_card}/>
@@ -38,7 +36,7 @@ function App() {
           <Route exact path="/" element={ <MainPage /> } />
           <Route path="/catalog" element={ <Catalog /> } />
           <Route path="/login" element={ <Login /> } />
-          <Route path="/signup" element={ <SignUp />} />
+          <Route path="/signup" element={ <Signup />} />
           <Route path="/product" element = {<ProductPage/>}/>
           <Route path="/cart" element={ <Cart />} />
           <Route path="/account" 
@@ -51,14 +49,15 @@ function App() {
         </Routes>
         <Footer />
       </div>
-    </BrowserRouter>
   );
 }
 
-export default () => {
+function Main() {
   return (
     <AuthProvider>
       <App />
     </AuthProvider>
   );
-};
+}
+
+export default Main;
