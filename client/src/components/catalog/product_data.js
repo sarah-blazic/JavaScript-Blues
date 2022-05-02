@@ -6,6 +6,7 @@ const product_card = [
     price: 350,
     currency: "$",
     thumb: "./product.png",
+    url: "/product"
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ const product_card = [
     price: 250,
     currency: "$",
     thumb: "./product.png",
+    url: "/product"
   },
   {
     id: 3,
@@ -22,6 +24,7 @@ const product_card = [
     price: 350,
     currency: "$",
     thumb: "./product.png",
+    url: "/product"
   },
   {
     id: 4,
@@ -30,6 +33,7 @@ const product_card = [
     price: 350,
     currency: "$",
     thumb: "./product.png",
+    url: "/product"
   },
   {
     id: 5,
@@ -38,6 +42,7 @@ const product_card = [
     price: 250,
     currency: "$",
     thumb: "./product.png",
+    url: "/product"
   },
   {
     id: 6,
@@ -46,6 +51,7 @@ const product_card = [
     price: 350,
     currency: "$",
     thumb: "./product.png",
+    url: "/product"
   },
   {
     id: 7,
@@ -54,6 +60,7 @@ const product_card = [
     price: 350,
     currency: "$",
     thumb: "./product.png",
+    url: "/product"
   },
   {
     id: 8,
@@ -62,6 +69,7 @@ const product_card = [
     price: 250,
     currency: "$",
     thumb: "./product.png",
+    url: "/product"
   },
   {
     id: 9,
@@ -70,6 +78,7 @@ const product_card = [
     price: 350,
     currency: "$",
     thumb: "./product.png",
+    url: "/product"
   },
 ];
 export default product_card;

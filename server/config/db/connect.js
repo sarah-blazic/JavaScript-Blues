@@ -12,7 +12,7 @@ let sequelize = new Sequelize(process.env.DATABASE_URL, {
   },
   //native: true,
 });
-console.log(process.env.DATABASE_URL);
+
 sequelize
   .authenticate()
   .then(() => {
