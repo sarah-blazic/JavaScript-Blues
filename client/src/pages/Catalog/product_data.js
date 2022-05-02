@@ -5,7 +5,7 @@ const product_card = [
     description: "Your average heroku italian",
     price: 350,
     currency: "$",
-    thumb: "./product.png",
+    thumb: require("../../images/product.png"),
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ const product_card = [
     description: "Your average heroku italian",
     price: 250,
     currency: "$",
-    thumb: "./product.png",
+    thumb: require("../../images/product.png"),
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ const product_card = [
     description: "Your average heroku italian",
     price: 350,
     currency: "$",
-    thumb: "./product.png",
+    thumb: require("../../images/product.png"),
   },
   {
     id: 4,
@@ -29,7 +29,7 @@ const product_card = [
     description: "Your average heroku italian",
     price: 350,
     currency: "$",
-    thumb: "./product.png",
+    thumb: require("../../images/product.png"),
   },
   {
     id: 5,
@@ -37,7 +37,7 @@ const product_card = [
     description: "Your average heroku italian",
     price: 250,
     currency: "$",
-    thumb: "./product.png",
+    thumb: require("../../images/product.png"),
   },
   {
     id: 6,
@@ -45,7 +45,7 @@ const product_card = [
     description: "Your average heroku italian",
     price: 350,
     currency: "$",
-    thumb: "./product.png",
+    thumb: require("../../images/product.png"),
   },
   {
     id: 7,
@@ -53,7 +53,7 @@ const product_card = [
     description: "Your average heroku italian",
     price: 350,
     currency: "$",
-    thumb: "./product.png",
+    thumb: require("../../images/product.png"),
   },
   {
     id: 8,
@@ -61,7 +61,7 @@ const product_card = [
     description: "Your average heroku italian",
     price: 250,
     currency: "$",
-    thumb: "./product.png",
+    thumb: require("../../images/product.png"),
   },
   {
     id: 9,
@@ -69,7 +69,7 @@ const product_card = [
     description: "Your average heroku italian",
     price: 350,
     currency: "$",
-    thumb: "./product.png",
+    thumb: require("../../images/product.png"),
   },
 ];
 export default product_card;

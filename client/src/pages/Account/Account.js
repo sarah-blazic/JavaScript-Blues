@@ -1,7 +1,10 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import "./Account.css";
+import favorite_items from "./favorites";
 
 const Account = () => {
+
+    const [page, setPage] = useState(0);
 
     let info = {
         img: '',
@@ -42,6 +45,45 @@ const Account = () => {
 
     const {img,username,email,first_name,last_name,phone_number,address} = (info.username == '') ? getDefaults() : info;
 
+    function getPage() {
+        if (page == 0) {
+            return (<div className="account-settings">
+            <div className="heading-container">
+                <h4>Account Settings</h4>
+            </div>
+            <div className="col contact-info">
+                <div className="contact"><label>Name</label><input type="text" placeholder="enter first name" value={first_name} autocomplete="chrome-off"/></div>
+                <div className="contact"><label>Surname</label><input type="text" placeholder="enter last name" value={last_name} autocomplete="chrome-off"/></div>
+                <div className="contact"><label>Email</label><input type="email" placeholder="enter email id" value={email} autocomplete="chrome-off"/></div>
+                <div className="contact"><label>Mobile Number</label><input type="tel" placeholder="enter phone number" value={phone_number} pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" autocomplete="chrome-off"/></div>
+            </div>
+            <div className="col address-container">
+                <div className="address"><label>Address Line 1</label><input type="text" placeholder="enter address line 1" value={address.line_1} autocomplete="chrome-off"/></div>
+                <div className="address"><label>Address Line 2</label><input type="text" placeholder="enter address line 2" value={address.line_2} autocomplete="chrome-off"/></div>
+                <div className="address"><label>Postcode</label><input type="text" placeholder="enter postcode" value={address.postal_code} autocomplete="chrome-off"/></div>
+                <div className="address"><label>Country</label><input type="text" placeholder="enter country" value={address.country} autocomplete="chrome-off"/></div>
+                <div className="address"><label>State</label><input type="text" placeholder="enter state" value={address.state} autocomplete="chrome-off"/></div>
+                <div className="address"><label>City</label><input type="text" placeholder="enter city" value={address.city} autocomplete="chrome-off"/></div>
+            </div>
+            <div className="submit-button-container"><button className="btn-primary" type="button">Save Profile</button></div>
+        </div>);
+        }
+        else if (page == 1) {
+            const favoriteItems = favorite_items.map((item) => (
+                <div className="favorite-item" key={item.id}>
+                    <img src={item.thumb}></img>
+                    <div className="favorite-item-info">
+                        <h5>{item.product_name}</h5><br />
+                        <p>{item.description}</p>
+                    </div>
+                </div>
+            ));
+            return (<div className="account-favorites">
+                {favoriteItems}
+            </div>);
+        }
+    }
+
     return (<div className="account-container">
         <div className="col">
             <div className="account-info-container">
@@ -50,28 +92,11 @@ const Account = () => {
                   <b>{username}</b>
                   <span className="email">{email}</span>
                 </div>
+                <div className="settings" onClick={() => setPage(0)}>Settings</div>
+                <div className="favorites" onClick={() => setPage(1)}>Favorites</div>
             </div>
             <div className="account-settings-container">
-                <div className="account-settings">
-                    <div className="heading-container">
-                        <h4>Account Settings</h4>
-                    </div>
-                    <div className="col contact-info">
-                        <div className="contact"><label>Name</label><input type="text" placeholder="enter first name" value={first_name} autocomplete="chrome-off"/></div>
-                        <div className="contact"><label>Surname</label><input type="text" placeholder="enter last name" value={last_name} autocomplete="chrome-off"/></div>
-                        <div className="contact"><label>Email</label><input type="email" placeholder="enter email id" value={email} autocomplete="chrome-off"/></div>
-                        <div className="contact"><label>Mobile Number</label><input type="tel" placeholder="enter phone number" value={phone_number} pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" autocomplete="chrome-off"/></div>
-                    </div>
-                    <div className="col address-container">
-                        <div className="address"><label>Address Line 1</label><input type="text" placeholder="enter address line 1" value={address.line_1} autocomplete="chrome-off"/></div>
-                        <div className="address"><label>Address Line 2</label><input type="text" placeholder="enter address line 2" value={address.line_2} autocomplete="chrome-off"/></div>
-                        <div className="address"><label>Postcode</label><input type="text" placeholder="enter postcode" value={address.postal_code} autocomplete="chrome-off"/></div>
-                        <div className="address"><label>Country</label><input type="text" placeholder="enter country" value={address.country} autocomplete="chrome-off"/></div>
-                        <div className="address"><label>State</label><input type="text" placeholder="enter state" value={address.state} autocomplete="chrome-off"/></div>
-                        <div className="address"><label>City</label><input type="text" placeholder="enter city" value={address.city} autocomplete="chrome-off"/></div>
-                    </div>
-                    <div className="submit-button-container"><button className="btn-primary" type="button">Save Profile</button></div>
-                </div>
+                {getPage()}
             </div>
         </div>
     </div>);
