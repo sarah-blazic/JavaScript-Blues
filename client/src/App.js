@@ -12,6 +12,7 @@ import Catalog from "./components/catalog/Catalog";
 import Footer from "./components/Footer/Footer";
 import SearchBar from "./components/Search-Bar/Search-Bar";
 import product_card from "./components/catalog/product_data";
+import ProductPage from "./components/ProductPage/ProductPage";
 
 function App() {
   const adminUser = {};
@@ -31,12 +32,13 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Navbar />
-        <SearchBar placeholder="Enter a Book Name..." data={product_card}/>
+        <SearchBar placeholder="Enter a Frogs Name..." data={product_card}/>
         <Routes>
           <Route exact path="/" element={ <MainPage /> } />
           <Route path="/catalog" element={ <Catalog /> } />
           <Route path="/login" element={ <Login /> } />
           <Route path="/signup" element={ <SignUp />} />
+          <Route path="/product" element = {<ProductPage/>}/>
           <Route path="/account" 
             element={
               <RequireAuth redirectTo="/login">
