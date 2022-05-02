@@ -31,6 +31,17 @@ module.exports = {
       });
   },
 
+  searchProducts: function(req, res) {
+    db.Order.findAndCountAll({
+      where: {
+        [name.substring] : req.params.name
+      }
+    })
+      .then(function(dbOrder) {
+        res.json(dbOrder);
+      });
+  },
+
   newProduct: function(req, res) {
     console.log(req.body);
     db.Product.create({
