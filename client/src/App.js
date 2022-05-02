@@ -13,6 +13,7 @@ import Footer from "./components/Footer/Footer";
 import SearchBar from "./components/Search-Bar/Search-Bar";
 import product_card from "./components/catalog/product_data";
 import ProductPage from "./components/ProductPage/ProductPage";
+import Cart from "./components/Cart/Cart";
 
 function App() {
   const adminUser = {};
@@ -39,6 +40,7 @@ function App() {
           <Route path="/login" element={ <Login /> } />
           <Route path="/signup" element={ <SignUp />} />
           <Route path="/product" element = {<ProductPage/>}/>
+          <Route path="/cart" element={ <Cart />} />
           <Route path="/account" 
             element={
               <RequireAuth redirectTo="/login">
