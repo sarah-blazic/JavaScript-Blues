@@ -2,6 +2,7 @@
     width:100%;
     height:100%;
     background-color:#e9eadc;
+    overflow: hidden;
 }
 
 .about-us-wrapper {

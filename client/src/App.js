@@ -9,6 +9,10 @@ import Login from "./components/Login/Login";
 import Signup from "./components/Signup/Signup";
 import Catalog from "./components/catalog/Catalog";
 import Footer from "./components/Footer/Footer";
+import SearchBar from "./components/Search-Bar/Search-Bar";
+import product_card from "./components/catalog/product_data";
+import ProductPage from "./components/ProductPage/ProductPage";
+import Cart from "./components/Cart/Cart";
 
 function App() {
   const navigate = useNavigate();
@@ -25,6 +29,7 @@ function App() {
   };
 
   return (
+<<<<<<< HEAD
     <div className="App">
       <Navbar />
       <Routes>
@@ -43,6 +48,30 @@ function App() {
       </Routes>
       <Footer />
     </div>
+=======
+    <BrowserRouter>
+      <div className="App">
+        <Navbar />
+        <SearchBar placeholder="Enter a Frogs Name..." data={product_card}/>
+        <Routes>
+          <Route exact path="/" element={ <MainPage /> } />
+          <Route path="/catalog" element={ <Catalog /> } />
+          <Route path="/login" element={ <Login /> } />
+          <Route path="/signup" element={ <SignUp />} />
+          <Route path="/product" element = {<ProductPage/>}/>
+          <Route path="/cart" element={ <Cart />} />
+          <Route path="/account" 
+            element={
+              <RequireAuth redirectTo="/login">
+                <Account />
+              </RequireAuth>
+            }
+          />
+        </Routes>
+        <Footer />
+      </div>
+    </BrowserRouter>
+>>>>>>> fa4341ecefa1a13fa18f21a6c1e7c3a41b978534
   );
 }
 
