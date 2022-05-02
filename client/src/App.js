@@ -9,7 +9,7 @@ import Login from "./components/Login/Login";
 import Signup from "./components/Signup/Signup";
 import Catalog from "./components/catalog/Catalog";
 import Footer from "./components/Footer/Footer";
-import SearchBar from "./components/Search-Bar/Search-Bar";
+import SearchBar from "./components/SearchBar/Search-Bar";
 import product_card from "./components/catalog/product_data";
 import ProductPage from "./components/ProductPage/ProductPage";
 import Cart from "./components/Cart/Cart";
@@ -29,26 +29,6 @@ function App() {
   };
 
   return (
-<<<<<<< HEAD
-    <div className="App">
-      <Navbar />
-      <Routes>
-        <Route exact path="/" element={<MainPage />} />
-        <Route path="/catalog" element={<Catalog />} />
-        <Route path="/login" element={<Login navigate={navigate} />} />
-        <Route path="/signup"  element={<Signup navigate={navigate} />} />
-        <Route
-          path="/account"
-          element={
-            <RequireAuth redirectTo="/login">
-              <Account />
-            </RequireAuth>
-          }
-        />
-      </Routes>
-      <Footer />
-    </div>
-=======
     <BrowserRouter>
       <div className="App">
         <Navbar />
@@ -57,7 +37,7 @@ function App() {
           <Route exact path="/" element={ <MainPage /> } />
           <Route path="/catalog" element={ <Catalog /> } />
           <Route path="/login" element={ <Login /> } />
-          <Route path="/signup" element={ <SignUp />} />
+          <Route path="/signup" element={ <Signup />} />
           <Route path="/product" element = {<ProductPage/>}/>
           <Route path="/cart" element={ <Cart />} />
           <Route path="/account" 
@@ -71,7 +51,6 @@ function App() {
         <Footer />
       </div>
     </BrowserRouter>
->>>>>>> fa4341ecefa1a13fa18f21a6c1e7c3a41b978534
   );
 }
 
