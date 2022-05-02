@@ -1,0 +1,18 @@
+.comp{
+    width: 200px;
+    min-width: 200px;
+}
+.container{
+    padding: 5% 0%;
+    background-color: white;
+    margin: 3px;
+    height: 60vh;
+    width: 100vw;
+    display: inline-block;
+    position: relative;
+    border-radius: 30px;
+    padding: none;
+}
+.checkout{
+    width: 100px;
+}
