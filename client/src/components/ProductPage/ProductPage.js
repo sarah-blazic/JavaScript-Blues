@@ -1,9 +1,8 @@
 import React from "react";
 import "./ProductPage.css";
-import product_card from "../catalog/product_data";
+import product_card from "../Catalog/product_data";
 import { Link } from "react-router-dom";
 import logo from "./product.png";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col } from "react-bootstrap";
 import { Button } from "../Button";
 
