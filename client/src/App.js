@@ -35,7 +35,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={ <MainPage /> } />
           <Route path="/catalog" element={ <Catalog /> } />
-          <Route path="/login" element={ <Login /> } />
+          <Route path="/login" element={ <Login navigate={ navigate } /> } />
           <Route path="/signup" element={ <Signup />} />
           <Route path="/product" element = {<ProductPage/>}/>
           <Route path="/cart" element={ <Cart />} />
