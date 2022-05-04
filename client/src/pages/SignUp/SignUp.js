@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import "./Sign-Up.css";
+import "./SignUp.css";
 import { Link } from "react-router-dom";
 
 const SignUp = () => {

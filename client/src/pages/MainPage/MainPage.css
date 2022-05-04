@@ -7,6 +7,8 @@ body {
     height:100%;
     background-color:#e9eadc;
     padding-bottom:5%;
+    /* Unsure? */
+    overflow: hidden;
 }
 
 .about-us-wrapper {

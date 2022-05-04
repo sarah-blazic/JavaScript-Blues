@@ -10,5 +10,9 @@ router.use('/orders', orderRoutes);
 router.use('/reviews', reviewRoutes);
 router.use('/products', productRoutes);
 router.get('/account', isAuthenticated, (req, res) => { res.status(200); });
+console.log("api hit");
+router.use(function(req, res) {
+    res.sendFile(path.join(__dirname, "../../client/build/index.html"));
+});
 
 module.exports = router;

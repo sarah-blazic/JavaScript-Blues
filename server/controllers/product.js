@@ -1,4 +1,4 @@
-const db = require("../models/product");
+const db = require("../models");
 
 module.exports = {
 
@@ -28,6 +28,17 @@ module.exports = {
     })
       .then(function(dbProduct) {
         res.json(dbProduct);
+      });
+  },
+
+  searchProducts: function(req, res) {
+    db.Order.findAndCountAll({
+      where: {
+        [name.substring] : req.params.name
+      }
+    })
+      .then(function(dbOrder) {
+        res.json(dbOrder);
       });
   },
 
