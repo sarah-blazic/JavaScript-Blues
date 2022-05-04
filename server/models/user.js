@@ -27,6 +27,26 @@ module.exports = function (sequelize, DataTypes) {
     },
   });
 
+  User.associate(models => {
+    User.hasMany(models.Order, {
+      foreignKey: {
+        name: 'userId',
+        allowNull: false
+      },
+      as: 'orders'
+    });
+  });
+
+  User.associate(models => {
+    User.hasMany(models.Review, {
+      foreignKey: {
+        name: 'userId',
+        allowNull: false
+      },
+      as: 'reviews'
+    });
+  });
+
   User.prototype.validPassword = function (password) {
     return bcrypt.compareSync(password, this.password);
   };
@@ -38,5 +58,6 @@ module.exports = function (sequelize, DataTypes) {
       null
     );
   });
+
   return User;
 };

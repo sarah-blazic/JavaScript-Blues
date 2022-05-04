@@ -58,5 +58,26 @@ module.exports = function (sequelize, DataTypes) {
       }
     }
   });
+
+  Order.associate(models => {
+    Order.belongsTo(models.User, {
+      foreignKey: {
+        name: 'userId',
+        allowNull: false
+      },
+      as: 'orders'
+    });
+  });
+
+  Order.associate(models => {
+    Order.hasMany(models.Product, {
+      foreignKey: {
+        name: 'productId',
+        allowNull: false
+      },
+      as: 'products'
+    });
+  });
+
   return Order;
 };
