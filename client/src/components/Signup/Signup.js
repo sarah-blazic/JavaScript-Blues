@@ -77,7 +77,7 @@ function Signup(props) {
     const postNewUser = newUser => {
         Axios.post('/api/users/signup', newUser)
             .then(() => {
-                props.history.push('/login')
+                props.navigate('/login' , { replace: true })
             })
             .catch(err => console.log(err))
     }
