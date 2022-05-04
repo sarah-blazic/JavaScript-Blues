@@ -51,26 +51,6 @@ module.exports = function (sequelize, DataTypes) {
       }
     });
 
-    Review.associate(models => {
-      Review.belongsTo(models.User, {
-        foreignKey: {
-          name: 'userId',
-          allowNull: false
-        },
-        as: "reviews"
-      })
-    });
-
-    Review.associate(models => {
-      Review.belongsTo(models.Product, {
-        foreignKey: {
-          name: 'productId',
-          allowNull: false
-        },
-        as: "products"
-      })
-    });
-
     return Review
   };
   
