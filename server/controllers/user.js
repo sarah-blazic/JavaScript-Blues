@@ -7,8 +7,9 @@ module.exports = {
     },
 
     signup: (req, res) => {
-        //console.log(req.body);
         db.User.create({
+          firstName: req.body.firstName,
+          lastName: req.body.lastName,
           email: req.body.email,
           password: req.body.password,
         })
