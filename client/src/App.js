@@ -15,6 +15,7 @@ import SearchBar from "./components/SearchBar/SearchBar";
 import product_card from "./pages/Catalog/product_data";
 import ProductPage from "./components/ProductPage/ProductPage";
 import Cart from "./components/Cart/Cart";
+import PreviewPage from "./components/HostedPaymentPage/PreviewPage";
 
 function App() {
   const navigate = useNavigate();
@@ -47,7 +48,9 @@ function App() {
           <Route exact path="/" element={ <MainPage /> } />
           <Route path="/catalog" element={ <Catalog /> } />
           <Route path="/login" element={ <Login navigate={ navigate } /> } />
-          <Route path="/signup" element={ <SignUp />} />
+          <Route path="/signup" element={ <Signup />} />
+          <Route path="/payment" element={<PreviewPage/>} />
+          <Route path="/signup" element={ <Signup navigate={ navigate } />} />
           <Route path="/product" element = {<ProductPage/>}/>
           <Route path="/cart" element={ <Cart />} />
           <Route path="/account" 

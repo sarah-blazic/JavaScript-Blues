@@ -5,7 +5,6 @@ require("dotenv").config();
 
 const db = require("./models");
 const routes = require("./routes/");
-console.log(routes);
 const passport = require("./config/passport");
 
 const app = express();
@@ -16,7 +15,7 @@ app.use(express.static(path.join(__dirname, "../client/build")));
 //middleware
 app.use(
   session({
-    secret: "Super secret secret", //change this!!!
+    secret: process.env.SUPER_SECRET_SECRET,
     resave: true,
     saveUninitialized: true,
   })
@@ -27,12 +26,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(routes);
 
-(async () => {
-  await db.sequelize.sync({ force: false }).then(() => {
+db.sequelize.sync({ force: false }).then(() => {
   console.log("🥞 Heroku database connected");
-});
-})();
-
-app.listen(PORT, () => {
+}).then(() => {
+  app.listen(PORT, () => {
   console.log(`✨ App listening on PORT ${PORT} ✨`);
+  });
 });

@@ -54,7 +54,7 @@ const Login = (props) => {
               placeholder="Username"
               className="field"
               type="text"
-              name="username"
+              name="emailInput"
               value={formData.emailInput}
               onChange={handleInputChange}
             />
@@ -64,6 +64,7 @@ const Login = (props) => {
               placeholder="Password"
               className="field"
               type="password"
+              name="passwordInput"
               value={formData.passwordInput}
               onChange={handleInputChange}
             />
