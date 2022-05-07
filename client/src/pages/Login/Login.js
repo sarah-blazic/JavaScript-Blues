@@ -1,11 +1,11 @@
 import React, { useState, useContext } from "react";
 import { AuthContext } from "../../AuthContext";
 import { Link, Navigate } from "react-router-dom";
-import { Button } from "../Button";
+import { Button } from "../../components/Button/Button";
 import Axios from "axios";
 import "./Login.css";
 
-function Login(props) {
+const Login = (props) => {
   // this doesnt do much right now but we have the username and password ready for authentication
   const { isAuth, setIsAuth } = useContext(AuthContext);
   const emptyCreds = { emailInput: "", passwordInput: "" };

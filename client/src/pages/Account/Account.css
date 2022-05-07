@@ -114,6 +114,7 @@ label {
     padding: 1rem;
     padding-top: 3rem;
     padding-bottom: 3rem;
+    border-bottom: 2px solid grey;
 }
   
 .account-settings-container {
@@ -145,4 +146,49 @@ label {
 
 .email {
     color: rgba(0, 0, 0, 0.5);
+}
+
+.settings, .favorites {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid grey;
+    transition: all 0.3s ease-in;
+    cursor: pointer;
+    user-select: none;
+}
+
+.settings:hover, .favorites:hover {
+    background-color: rgb(84, 228, 149);
+}
+
+.favorite-item {
+    width: 98%;
+    margin: 1%;
+    height: 12%;
+    display: flex;
+    border: 2px solid grey;
+    border-radius: 5px;
+}
+
+.favorite-item img {
+    padding: 0px;
+    margin: 0px;
+    width: 25%;
+    height: 100%;
+}
+
+.favorite-item-info {
+    padding: 0px;
+    margin: 0px;
+    width: 75%;
+}
+
+.favorite-item-info h5 {
+    padding-top: 2%;
+    font-size: 24px;
+}
+
+.favorite-item-info p {
+    padding-top: 2%;
 }

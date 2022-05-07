@@ -1,10 +1,10 @@
 import React from "react";
 import "./ProductPage.css";
-import product_card from "../Catalog/product_data";
+import product_card from "../../pages/Catalog/product_data";
 import { Link } from "react-router-dom";
 import logo from "./product.png";
 import { Container, Row, Col } from "react-bootstrap";
-import { Button } from "../Button";
+import { Button } from "../Button/Button";
 
 function ProductPage() {
   return (
