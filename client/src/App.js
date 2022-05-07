@@ -32,7 +32,6 @@ function App() {
   return (
       <div className="App">
         <Navbar />
-        <SearchBar placeholder="Enter a Frogs Name..." data={product_card}/>
         <Routes>
           <Route exact path="/" element={ <MainPage /> } />
           <Route path="/catalog" element={ <Catalog /> } />

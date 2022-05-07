@@ -1,61 +1,81 @@
 import React, { useState } from "react";
-import "./SearchBar.css";
-import SearchIcon from "@material-ui/icons/Search";
-import CloseIcon from "@material-ui/icons/Close";
+import _ from "lodash";
+import ResultListComponent from "../ResultList/ResultList";
+import { Axios } from "axios";
+import './SearchBar.scss';
 
-function SearchBar({ placeholder, data }) {
-  const [filteredData, setFilteredData] = useState([]);
-  const [wordEntered, setWordEntered] = useState("");
+const SearchBarComponent = () => {
+  const [query, setQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState({});
+  const [dataList, setDataList] = useState([]);
+  const [errorMsg, setErrorMsg] = useState("");
+  /**
+   * This will be called every time there is
+   * a change in the input
+   * @param {*} { target: { value } }
+   */
+  const onChange = ({ target: { value } }) => {
+    setQuery(value);
 
-  const handleFilter = (event) => {
-    const searchWord = event.target.value;
-    setWordEntered(searchWord);
-    const newFilter = data.filter((value) => {
-      return value.product_name.toLowerCase().includes(searchWord.toLowerCase());
+    const search = _.debounce(sendQuery, 300);
+
+    setSearchQuery((prevSearch) => {
+      if (prevSearch.cancel) {
+        prevSearch.cancel();
+      }
+      return search;
     });
 
-    if (searchWord === "") {
-      setFilteredData([]);
-    } else {
-      setFilteredData(newFilter);
+    search(value);
+  };
+
+  const fetchData = (value) => {
+    try {
+      const { data } = Axios.get(`api/search/${value}`);
+      console.log(data);
+      if (data === undefined) {
+          return "No products found!";
+      }
+      return { result: data };
+    } catch (err) {
+      return [err];
     }
   };
 
-  const clearInput = () => {
-    setFilteredData([]);
-    setWordEntered("");
+  /**
+   * In charge to send the value
+   * to the API.
+   * @param {*} value
+   */
+  const sendQuery = (value) => {
+    const result = fetchData(value);
+
+    if (result.Response === "True") {
+      setDataList(result.Search);
+      setErrorMsg("");
+    } else {
+      setDataList([]);
+      setErrorMsg(result.Error);
+    }
   };
 
   return (
-    <div className="search">
-      <div className="searchInputs">
+    <div>
+      <div>
+        <p>Type to search!</p>
         <input
           type="text"
-          placeholder={placeholder}
-          value={wordEntered}
-          onChange={handleFilter}
+          value={query}
+          placeholder="Search for products..."
+          onChange={onChange}
         />
-        <div className="searchIcon">
-          {filteredData.length === 0 ? (
-            <SearchIcon />
-          ) : (
-            <CloseIcon id="clearBtn" onClick={clearInput} />
-          )}
-        </div>
       </div>
-      {filteredData.length !== 0 && (
-        <div className="dataResult">
-          {filteredData.slice(0, 15).map((value, key) => {
-            return (
-              <a className="dataItem" href={value.url} target="_blank" rel="noreferrer">
-                <p>{value.product_name}</p>
-              </a>
-            );
-          })}
-        </div>
-      )}
+      <div>
+        <ResultListComponent items={dataList} />
+        {errorMsg}
+      </div>
     </div>
   );
-}
+};
 
-export default SearchBar;
+export default SearchBarComponent;

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 //import React, { useState } from 'react';
 import { Button } from "../Button";
 import { MenuItems } from "./MenuItems";
+import SearchBar from "../SearchBar/SearchBar"
 import "./Navbar.css";
 
 class Navbar extends Component {
@@ -25,6 +26,8 @@ class Navbar extends Component {
             className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}
           ></i>
         </div>
+
+        <SearchBar />
 
         <ul className={this.state.clicked ? "nav-menu active" : "nav-menu"}>
           {MenuItems.map((item, index) => {
