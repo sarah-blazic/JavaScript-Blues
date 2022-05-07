@@ -4,10 +4,10 @@ import { useNavigate, Route, Routes, Navigate } from "react-router-dom";
 import { AuthProvider, AuthContext } from "./AuthContext";
 // Pages
 import Account from "./pages/Account/Account";
-import MainPage from "./pages/MainPage/MainPage";
+import Home from "./pages/Home/Home";
 import Catalog from "./pages/Catalog/Catalog";
 import Login from "./pages/Login/Login";
-import SignUp from "./pages/SignUp/SignUp";
+import Signup from "./pages/Signup/Signup";
 // Components
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
@@ -45,7 +45,7 @@ function App() {
         <Navbar />
         <SearchBar placeholder="Enter a Frogs Name..." data={product_card}/>
         <Routes>
-          <Route exact path="/" element={ <MainPage /> } />
+          <Route exact path="/" element={ <Home /> } />
           <Route path="/catalog" element={ <Catalog /> } />
           <Route path="/login" element={ <Login navigate={ navigate } /> } />
           <Route path="/signup" element={ <Signup />} />
