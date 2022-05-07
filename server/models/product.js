@@ -21,6 +21,7 @@ module.exports = function (sequelize, DataTypes) {
         isDecimal: true,
       }
     },
+    /* Future development: inventory control
     inventory: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -28,7 +29,8 @@ module.exports = function (sequelize, DataTypes) {
       validate: {
         isInteger: true,
       }
-    },
+    },*/
+    /* Future development: customer ratings
     rating: {
       type: DataTypes.DECIMAL(10,1),
       allowNull: false,
@@ -36,7 +38,7 @@ module.exports = function (sequelize, DataTypes) {
       validate: {
         isDecimal: true,
       }
-    },
+    },*/
     image: {
         type: DataTypes.STRING,
         allowNull: true,
