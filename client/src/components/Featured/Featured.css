@@ -9,7 +9,8 @@
     display: inline-block;
     width: calc(var(--total) * 100vw);
     white-space: nowrap;
-    overflow-x: hidden;
+    overflow-x: hidden!important;
+    overflow-y: hidden!important;
     box-shadow: 10px;
     height: 600px;
     background: rgb(82, 221, 69);

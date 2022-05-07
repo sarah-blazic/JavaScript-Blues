@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import Featured from "../Featured/Featured";
-import BlockText from "../BlockText/BlockText";
-import "./MainPage.css";
+import Featured from "../../components/Featured/Featured";
+import BlockText  from "../../components/BlockText/BlockText";
+import "./Home.css";
 
 const about_us_content = `
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur consectetur, odio vel tempor condimentum, nisl ante venenatis enim, vel tempus ipsum nibh sit amet velit. In auctor mi felis, id accumsan lorem egestas nec. In hendrerit felis vel augue placerat varius. Fusce lacinia tellus arcu, in facilisis enim lobortis sed. Nam elementum ex ac quam accumsan, sed dignissim nisl fringilla. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris facilisis, est sit amet accumsan fermentum, lacus felis bibendum elit, ut tincidunt lectus turpis in velit. Ut arcu nibh, commodo id orci quis, auctor sagittis sem. Donec ac aliquet orci, sit amet consectetur quam. Integer non orci pulvinar, suscipit sapien a, pretium ipsum. Nulla ultricies nisi id dignissim vulputate. Nunc ut est ut arcu pulvinar vulputate sed at ligula.
@@ -11,15 +11,13 @@ Aenean iaculis facilisis urna, ac vestibulum nunc tincidunt at. Suspendisse tris
 Quisque pretium porttitor ex eu cursus. Mauris id ipsum sit amet arcu congue fermentum vel ac sapien. Ut suscipit lobortis posuere. In vehicula augue id tempus convallis. Suspendisse ac nibh ut enim varius pretium. Sed vitae eros leo. Morbi varius orci est, eu tincidunt risus sodales hendrerit.
 `;
 
-class MainPage extends Component {
-    render () {
-        return (
-        <div clasName="main-page-wrapper">
-            <Featured />
-            <hr />
-            <BlockText text={about_us_content} headerText="About Us" />
-        </div>);
-    }
+const MainPage = () => {
+    return (
+    <div className="main-page-wrapper">
+        <Featured />
+        <hr />
+        <BlockText text={about_us_content} headerText="About Us" />
+    </div>);
 }
 
 export default MainPage;

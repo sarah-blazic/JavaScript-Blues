@@ -1,83 +1,42 @@
-import React, { Component } from "react";
-import FeaturedDot from "./FeaturedDot";
+import React, { useState } from 'react';
 import "./Featured.css";
+import featured_images from "./featured_data";
 
-class Featured extends Component {
+const Featured = () => {
 
-    constructor (props) {
-        super(props);
-        this.curr_img = 1;
-        this.enable_scroll = true;
-        this.dots = [];
-        this.max_img = 0;
-        this.scroll = this.scroll.bind(this);
+    document.documentElement.style.setProperty("--total", featured_images.length);
+
+    const [currImage, setCurrImage] = useState(1);
+
+    const imageList = featured_images.map((image) => (
+        <img key={image.name} src={image.uri} alt="No image found." className="image" />
+    ));
         
-        // Getting Images
-        let r = require.context('../../images', false, /\.(png|jpe?g|svg)$/);
-        let images = {};
-        r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
-        this.max_img = Object.keys(images).length;
-        console.log(this.max_img);
-        this.imgs = [];
-        this.points = [];
-        let err_message = "Image not found.";
-        for (var i = 1; i <= this.max_img; i++) {
-            let name = "frog" + i + ".jpg";
-            this.imgs.push(
-                <img src={images[name]} alt={err_message} className="image"/>
-            );
-            var dotRef = React.createRef();
-            this.dots[i] = dotRef;
-            this.points.push(
-                <FeaturedDot ref={dotRef} />
-            );
-        }
+    const dotList = featured_images.map((image) => (
+        <i key={image.name} className={(image.id == currImage ? "fa-solid" : "fa-regular") + " fa-circle featured-point"} />
+    ));
 
-        document.documentElement.style.setProperty("--total", this.max_img);
+    function scroll (direction) {
+        var new_curr = currImage + direction;
+        if (new_curr < 1)
+            return;
+        if (new_curr > featured_images.length)
+            return;
+        document.documentElement.style.setProperty("--curr", new_curr - 1);
+        setCurrImage(new_curr);
     }
+        
+    return (<div className="featured-wrapper">
+        <div className="image-container transform">
+            {imageList}
+        </div>
+        <div className="scroll-container">
+            <a className="prev" onClick={() => scroll(-1)}>&#10094;</a>
+            {dotList}
+            <a className="next" onClick={() => scroll(1)}>&#10095;</a>
+        </div>
+    </div>);
 
-    enable() {
-        this.enable_scroll = true;
-    }
-
-    update(curr) {
-        for (var i = 1; i <= this.max_img; i++) {
-            this.dots[i].current.setState({active: ((curr == i) ? true : false )});
-        }
-    }
-
-    scroll (direction) {
-        if (this.enable_scroll) {
-            var new_curr = this.curr_img + direction;
-            if (new_curr < 1)
-                return;
-            if (new_curr > this.max_img)
-                return;
-            this.curr_img = new_curr;
-            this.enable_scroll = false;
-            document.documentElement.style.setProperty("--curr", this.curr_img - 1);
-            this.update(new_curr);
-            this.enable_scroll = true;
-        }
-    }
-
-    componentDidMount () {
-        this.dots[this.curr_img].current.setState({active: true});
-    }
-
-    render () {
-        return (<div className="featured-wrapper">
-                <div className="image-container transform">
-                    {this.imgs}
-                </div>
-                <div className="scroll-container">
-                    <a className="prev" onClick={this.scroll.bind(null,-1)}>&#10094;</a>
-                    {this.points}
-                    <a className="next" onClick={this.scroll.bind(null,1)}>&#10095;</a>
-                </div>
-            </div>);
-    }
-
-}
+};
 
 export default Featured;
