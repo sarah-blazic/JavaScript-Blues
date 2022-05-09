@@ -14,3 +14,25 @@
 .name{
     text-align: center;
 }
+.card{
+  padding-top: 90px;
+  height: 80vh;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.mainImg{
+  text-align: center;
+  margin: auto;
+  height: 30vh;
+  width: auto !important;
+}
+/* .name{
+  text-align: center;
+}
+.description{
+  text-align: center;
+}
+.addToCart{
+  text-align: center;
+} */

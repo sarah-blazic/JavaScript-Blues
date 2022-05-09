@@ -10,7 +10,7 @@ let instance = {};
 
 instance.order = Order;
 instance.product = Product;
-instance.review = Review;
+// instance.review = Review;
 instance.user = User;
 
 Order.belongsTo(User, {
