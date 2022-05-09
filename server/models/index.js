@@ -21,12 +21,16 @@ Order.belongsTo(User, {
   as: "orders",
 });
 
-Order.hasMany(Product, {
+Product.belongsToMany(Order, {
+    through: "Line"
+});
+
+/*Order.hasMany(Product, {
   foreignKey: {
     name: "productId",
   },
   as: "products",
-});
+});*/
 
 // Future development: reviews feature
 /*
