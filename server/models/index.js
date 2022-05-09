@@ -10,7 +10,7 @@ let instance = {};
 
 instance.order = Order;
 instance.product = Product;
-instance.review = Review;
+//instance.review = Review;
 instance.user = User;
 
 Order.belongsTo(User, {
@@ -21,12 +21,16 @@ Order.belongsTo(User, {
   as: "orders",
 });
 
-Order.hasMany(Product, {
+Product.belongsToMany(Order, {
+    through: "Line"
+});
+
+/*Order.hasMany(Product, {
   foreignKey: {
     name: "productId",
   },
   as: "products",
-});
+});*/
 
 // Future development: reviews feature
 /*

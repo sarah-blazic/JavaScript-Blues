@@ -42,7 +42,7 @@ function App() {
   */
   return (
       <div className="App">
-        <Navbar />
+        <Navbar cartCount={ 3 } />
         <Routes>
           <Route exact path="/" element={ <Home /> } />
           <Route path="/catalog" element={ <Catalog /> } />
