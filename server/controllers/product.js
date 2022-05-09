@@ -5,8 +5,10 @@ module.exports = {
   getAllProducts: function(req, res) {
     db.Product.findAll({})
       .then(function(dbProduct) {
+        console.log(dbProduct)
         res.json(dbProduct);
-      });
+      })
+      .catch(error => console.log(error))
   },
 
   getProduct: function(req, res) {

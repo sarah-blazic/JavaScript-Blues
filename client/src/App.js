@@ -45,12 +45,12 @@ function App() {
         <Navbar />
         <Routes>
           <Route exact path="/" element={ <Home /> } />
-          <Route path="/catalog" element={ <Catalog /> } />
+          <Route path="/catalog" element={ <Catalog/> } />
           <Route path="/login" element={ <Login navigate={ navigate } /> } />
           <Route path="/signup" element={ <Signup />} />
           <Route path="/payment" element={<PreviewPage/>} />
           <Route path="/signup" element={ <Signup navigate={ navigate } />} />
-          <Route path="/product" element = {<ProductPage/>}/>
+          <Route path="/product/:id" element = {<ProductPage/>}/>
           <Route path="/cart" element={ <Cart />} />
           <Route path="/account" 
             element={
