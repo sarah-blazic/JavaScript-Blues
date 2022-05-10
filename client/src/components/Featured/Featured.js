@@ -1,25 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import "./Featured.css";
 import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 
 const Featured = (props) => {
 
     const featured_images = props.data;
 
-    document.documentElement.style.setProperty("--total", featured_images.length);
-
     const [currImage, setCurrImage] = useState(1);
 
     const imageList = featured_images.map((image) => (
         <img key={image.name} src={image.uri} alt="No image found." className="carousel-image" />
     ));
-
-    function scrollTo(new_curr) {
-        document.documentElement.style.setProperty("--curr", new_curr - 1);
-        setCurrImage(new_curr);
-    }
 
     const dotList = [];
     for (var i = 1; i <= featured_images.length; i++) {
@@ -31,17 +23,11 @@ const Featured = (props) => {
         />);
     }
 
-    const setCurrOnMount = () => {
-        document.documentElement.style.setProperty("--curr", 0);
-    }
-
-    useEffect(() => setCurrOnMount(), []);
-
     function scroll (direction) {
         var new_curr = currImage + direction;
         if (new_curr < 1 || new_curr > featured_images.length)
             return;
-        scrollTo(new_curr);
+        setCurrImage(new_curr);
     }
     
     const num = -1536 * (currImage - 1);

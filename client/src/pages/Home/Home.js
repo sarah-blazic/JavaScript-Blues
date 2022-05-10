@@ -1,5 +1,4 @@
 import Featured from "../../components/Featured/Featured";
-import "./Home.css";
 import Container from '@mui/material/Container';
 import Divider from '@mui/material/Divider';
 import featured_images from './featured_data.js';
