@@ -1,8 +1,7 @@
 import React from "react";
 import "./ProductCard.css";
 
-const ProductCard = (props) => {
-  const { onAdd, item } = props;
+const ProductCard = ({ item, onAdd }) => {
   return (
     <div className="card">
       <div className="card_img">
