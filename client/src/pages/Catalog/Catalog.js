@@ -1,19 +1,35 @@
-import React from "react";
-import product_card from "./product_data";
+import React, { useState, useEffect } from "react";
 import "./Catalog.css";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import axios from "axios";
 
 function Catalog(props) {
-  //const products = axios.get("/api/products");
-   const {onAdd, cartItems} = props;
-  const listItems = product_card.map((item) => (
-    <ProductCard onAdd={onAdd} cartItems={cartItems} item={item} key={item.id}/>
-  ));
-  return<div>
-   <div className="main_content">{listItems}</div>;
-   <div>adsfasdfasdfasdfasdfasdfasdfasdfadsfasdfasdf</div>
-   </div>
-  
+  const { onAdd, cartItems } = props;
+
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    async function getProducts() {
+      const response = await axios.get("/api/products/").catch((e) => {
+        console.log(e);
+      });
+      setProducts(response.data);
+    }
+    getProducts();
+  }, []);
+
+  return (
+    <div className="main_content">
+      {products.map((item) => (
+        <ProductCard
+          onAdd={onAdd}
+          cartItems={cartItems}
+          item={item}
+          key={item.id}
+        />
+      ))}
+    </div>
+  );
 }
+
 export default Catalog;
