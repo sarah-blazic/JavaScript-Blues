@@ -67,7 +67,7 @@ function App() {
     <div className="App">
       <Navbar cartCount={cartQty} />
       <Routes>
-        <Route exact path="/" element={<Home />} />
+        <Route exact path="/" element={<Home onAdd={onAdd} />} />
         <Route path="/catalog" element={<Catalog onAdd={onAdd} />} />
         <Route path="/login" element={<Login navigate={navigate} />} />
         <Route path="/signup" element={<Signup />} />

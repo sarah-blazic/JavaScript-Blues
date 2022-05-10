@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import Featured from "../../components/Featured/Featured";
 import BlockText  from "../../components/BlockText/BlockText";
+import Box from "@mui/material/Box";
+import SearchBar from "../../components/SearchBar/SearchBar";
+import Divider from "@mui/material/Divider";
 import "./Home.css";
 
 const about_us_content = `
@@ -16,6 +19,10 @@ const MainPage = () => {
     <div className="main-page-wrapper">
         <Featured />
         <hr />
+        <Box sx={{my : "5rem"}}>
+            <SearchBar onAdd={onAdd}/>
+        </Box>
+        <Divider sx={{my : "2rem"}} />
         <BlockText text={about_us_content} headerText="About Us" />
     </div>);
 }
