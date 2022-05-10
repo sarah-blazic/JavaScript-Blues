@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "./Featured.css";
 import featured_images from "./featured_data";
 
@@ -11,19 +11,33 @@ const Featured = () => {
     const imageList = featured_images.map((image) => (
         <img key={image.name} src={image.uri} alt="No image found." className="image" />
     ));
-        
-    const dotList = featured_images.map((image) => (
-        <i key={image.name} className={(image.id == currImage ? "fa-solid" : "fa-regular") + " fa-circle featured-point"} />
-    ));
+
+    function scrollTo(new_curr) {
+        document.documentElement.style.setProperty("--curr", new_curr - 1);
+        setCurrImage(new_curr);
+    }
+
+    const dotList = [];
+    for (var i = 1; i <= featured_images.length; i++) {
+        let temp = i;
+        dotList.push(<i 
+            key={featured_images[i - 1].name}
+            className={(featured_images[i - 1].id === currImage ? "fa-solid" : "fa-regular") + " fa-circle featured-point"}
+            onClick={() => scrollTo(temp)}
+        />);
+    }
+
+    const setCurrOnMount = () => {
+        document.documentElement.style.setProperty("--curr", 0);
+    }
+
+    useEffect(() => setCurrOnMount(), []);
 
     function scroll (direction) {
         var new_curr = currImage + direction;
-        if (new_curr < 1)
+        if (new_curr < 1 || new_curr > featured_images.length)
             return;
-        if (new_curr > featured_images.length)
-            return;
-        document.documentElement.style.setProperty("--curr", new_curr - 1);
-        setCurrImage(new_curr);
+        scrollTo(new_curr);
     }
         
     return (<div className="featured-wrapper">
