@@ -13,7 +13,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import SearchBar from "./components/SearchBar/SearchBar";
 import product_card from "./pages/Catalog/product_data";
-import ProductPage from "./components/ProductPage/ProductPage";
+import ProductPage from "./pages/ProductPage/ProductPage";
 import Cart from "./components/Cart/Cart";
 import PreviewPage from "./components/HostedPaymentPage/PreviewPage";
 
@@ -50,7 +50,7 @@ function App() {
           <Route path="/signup" element={ <Signup />} />
           <Route path="/payment" element={<PreviewPage/>} />
           <Route path="/signup" element={ <Signup navigate={ navigate } />} />
-          <Route path="/product" element = {<ProductPage/>}/>
+          <Route path="/product/:id" element = {<ProductPage/>}/>
           <Route path="/cart" element={ <Cart />} />
           <Route path="/account" 
             element={
