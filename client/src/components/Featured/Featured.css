@@ -1,27 +1,6 @@
-:root {
-    --curr:0;
-    --total:1;
-}
-
-
-.image-container {
-    vertical-align: middle;
-    display: inline-block;
-    width: calc(var(--total) * 100vw);
-    white-space: nowrap;
-    overflow-x: hidden!important;
-    overflow-y: hidden!important;
-    box-shadow: 10px;
-    height: 600px;
-    background: rgb(82, 221, 69);
-    margin-left: calc(var(--curr) * -100vw);
-}
-
-.image {
-    width: 100vw;
+.carousel-image {
+    width: 1536px;
     height: 100%;
-    display: inline-block;
-    margin: 0px;
 }
 
 .transform {
@@ -33,11 +12,6 @@
 }
 
 /* Scroll */
-
-.scroll-container {
-    height: 40px;
-    width: 100%;
-}
 
 .prev, .next {
     padding: 10px;
@@ -67,20 +41,4 @@
 .featured-point {
     padding-left: 10px;
     padding-right: 10px;
-}
-
-.title {
-    margin-top: 5%;
-    font-size: 42px;
-}
-
-.featured-wrapper {
-    text-align: center;
-    height: 720px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    margin-top: 2%;
-    user-select: none;
-    background: none;
 }
