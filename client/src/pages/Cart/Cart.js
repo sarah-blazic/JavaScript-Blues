@@ -10,47 +10,55 @@ import WorkIcon from '@mui/icons-material/Work';
 import BeachAccessIcon from '@mui/icons-material/BeachAccess';
 import Divider from '@mui/material/Divider';
 import Button from '@mui/material/Button';
-
+import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
+import { ListItemSecondaryAction } from '@mui/material';
 
 export default function Cart(props) {
   const {cartItems, onAdd, onRemove} = props;
+  const itemsPrice = cartItems.reduce((a, c) => a + c.qty * c.price, 0);
+  console.log(cartItems);
     return (
-      
+      <Box sx={{ my: 10, }}>
+        
+        <Container>{cartItems.length === 0 && <h2 className='empty'>Cart is empty</h2>}</Container>
+        
+      <Container maxWidth="lg">
       <List
         sx={{
           width: '100%',
-          maxWidth: 360,
           bgcolor: 'background.paper',
         }}
       >
-        <ListItem>
+        {cartItems.map((item)=>(
+          <ListItem>
           <ListItemAvatar>
-            <Avatar>
+            <Avatar src={"../../images/" + item.image}>
               <ImageIcon />
             </Avatar>
           </ListItemAvatar>
-          <ListItemText primary="Photos" secondary="Jan 9, 2014" />
-          <Button variant="contained">remove</Button>
+          <ListItemText primary={item.name} secondary={item.description} />
+          <Box sx={{ px: 2, }}>
+          <Button variant="contained" onClick={() => onAdd(item)}>+</Button>
+          </Box>
+          {item.qty}
+          <Box sx={{ px: 2, }}>
+          <Button variant="contained" onClick={() => onRemove(item)}>-</Button>
+          </Box>
+          ${item.price * item.qty}
+        </ListItem>
+        ))}
+        <ListItem>
+          <ListItemText>Total</ListItemText>
+          <Box sx={{ my: 2, }}>
+         <ListItemSecondaryAction>${itemsPrice}</ListItemSecondaryAction>
+         </Box>
+        
         </ListItem>
         <Divider variant="inset" component="li" />
-        <ListItem>
-          <ListItemAvatar>
-            <Avatar>
-              <WorkIcon />
-            </Avatar>
-          </ListItemAvatar>
-          <ListItemText primary="Work" secondary="Jan 7, 2014" />
-        </ListItem>
-        <Divider variant="inset" component="li" />
-        <ListItem>
-          <ListItemAvatar>
-            <Avatar>
-              <BeachAccessIcon />
-            </Avatar>
-          </ListItemAvatar>
-          <ListItemText primary="Vacation" secondary="July 20, 2014" />
-        </ListItem>
       </List>
+      </Container>
+      </Box>
     );
   }
 
