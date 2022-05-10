@@ -3,8 +3,7 @@ import "./ProductCard.css";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
-const ProductCard = (props) => {
-  const { onAdd, item } = props;
+const ProductCard = ({ item, onAdd }) => {
   return (
     <div className="card">
       <div className="card_img">

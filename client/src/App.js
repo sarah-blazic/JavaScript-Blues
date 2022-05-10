@@ -41,7 +41,7 @@ function App() {
       setCartItems([...cartItems, { ...product, qty: 1 }]);
     }
   };
-  
+
   const onRemove = (product) => {
     console.log("on remove ran");
     const exist = cartItems.find((x) => x.id === product.id);
@@ -58,7 +58,7 @@ function App() {
 
   useEffect(() => {
     let count = 0;
-    cartItems.forEach(el => {
+    cartItems.forEach((el) => {
       count += el.qty;
     });
     setCartQty(count);
@@ -68,11 +68,8 @@ function App() {
     <div className="App">
       <Navbar cartCount={cartQty} />
       <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route
-          path="/catalog"
-          element={<Catalog onAdd={onAdd} cartItems={cartItems} />}
-        />
+        <Route exact path="/" element={<Home onAdd={onAdd} />} />
+        <Route path="/catalog" element={<Catalog onAdd={onAdd} />} />
         <Route path="/login" element={<Login navigate={navigate} />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/payment" element={<PreviewPage />} />
