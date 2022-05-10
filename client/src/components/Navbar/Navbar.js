@@ -172,7 +172,10 @@ const ResponsiveAppBar = (props) => {
           </Box>
 
           <Badge badgeContent={cartCount} color="success">
-            <ShoppingCartIcon color="action" />
+            <Link to="/cart">
+              <ShoppingCartIcon color="action" />
+            </Link>
+            
           </Badge>
 
         </Toolbar>
