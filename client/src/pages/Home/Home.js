@@ -14,7 +14,7 @@ Aenean iaculis facilisis urna, ac vestibulum nunc tincidunt at. Suspendisse tris
 Quisque pretium porttitor ex eu cursus. Mauris id ipsum sit amet arcu congue fermentum vel ac sapien. Ut suscipit lobortis posuere. In vehicula augue id tempus convallis. Suspendisse ac nibh ut enim varius pretium. Sed vitae eros leo. Morbi varius orci est, eu tincidunt risus sodales hendrerit.
 `;
 
-const MainPage = () => {
+const MainPage = ({ onAdd }) => {
     return (
     <div className="main-page-wrapper">
         <Featured />
