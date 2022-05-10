@@ -12,20 +12,11 @@ export async function getProduct(id) {
     return response
 }
 
-// export async function getProducts(){
-//     console.log('url', process.env.REACT_APP_API_URL)
-//     const result = await axios.get(`/products`)
-//     return result
-
-// }
-
-
-// export async function getProducts() {
-//       const response = await axios.get('/api/products/')
-//       .catch((e) => {
-//         console.log(e);
-//       });
-//       setProducts(response.data);
-//     }
-//     getProducts();
-//   ;
+export async function addToCart(id) {
+    const response = await axios.get(`api/orders/${id}`).then(function (response){
+        console.log(response)
+    }).catch(function (error){
+        console.log(error);
+    })
+    return response
+}
