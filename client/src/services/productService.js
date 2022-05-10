@@ -20,3 +20,20 @@ export async function addToCart(id) {
     })
     return response
 }
+// export async function getProducts(){
+//     console.log('url', process.env.REACT_APP_API_URL)
+//     const result = await axios.get(`/products`)
+//     return result
+
+// }
+
+
+// export async function getProducts() {
+//       const response = await axios.get('/api/products/')
+//       .catch((e) => {
+//         console.log(e);
+//       });
+//       setProducts(response.data);
+//     }
+//     getProducts();
+//   ;

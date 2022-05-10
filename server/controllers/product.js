@@ -3,7 +3,7 @@ const db = require("../models");
 module.exports = {
 
   getAllProducts: function(req, res) {
-    db.Product.findAll({})
+    db.product.findAll({})
       .then(function(dbProduct) {
         console.log(dbProduct)
         res.json(dbProduct);
@@ -12,7 +12,7 @@ module.exports = {
   },
 
   getProduct: function(req, res) {
-    db.Product.findOne({
+    db.product.findOne({
       where: {
         id: req.params.id
       }
@@ -23,7 +23,7 @@ module.exports = {
   },
 
   getTaggedProducts: function(req, res) {
-    db.Product.findAll({
+    db.product.findAll({
       where: {
         category: req.params.tag
       }

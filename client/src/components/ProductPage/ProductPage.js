@@ -11,9 +11,19 @@ import { getProduct } from "../../services/productService";
 import axios from "axios";
 
 function ProductPage() {
-  // var product = getProduct({id})
-  // console.log("prod", product.name)
-  // async function addToCart
+
+  const [product, setProduct] = useState([]);
+  const { id } = useParams();
+  useEffect(() => {
+    async function getProduct() {
+      const response = await axios.get('/api/products/' + id).catch((e) => {
+        console.log(e);
+      });
+      // console.log("res", response.data);
+      return setProduct(response.data);
+    }
+    getProduct();
+  }, []);
   return (
     <Card className="card" sx={{ maxWidth: 1500 }}>
     <CardActionArea>
@@ -29,7 +39,7 @@ function ProductPage() {
         </h2>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div" className="name">
-          {/* {product.name} */}name
+          {product.name}name
         </Typography>
         <Typography variant="body2" color="text.secondary" className="description">
           product description goes here
