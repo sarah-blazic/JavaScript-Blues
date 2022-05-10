@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import "./Featured.css";
-import featured_images from "./featured_data";
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import Stack from '@mui/material/Stack';
 
-const Featured = () => {
+const Featured = (props) => {
+
+    const featured_images = props.data;
 
     document.documentElement.style.setProperty("--total", featured_images.length);
 
     const [currImage, setCurrImage] = useState(1);
 
     const imageList = featured_images.map((image) => (
-        <img key={image.name} src={image.uri} alt="No image found." className="image" />
+        <img key={image.name} src={image.uri} alt="No image found." className="carousel-image" />
     ));
 
     function scrollTo(new_curr) {
@@ -39,17 +43,22 @@ const Featured = () => {
             return;
         scrollTo(new_curr);
     }
-        
-    return (<div className="featured-wrapper">
-        <div className="image-container transform">
+    
+    const num = -1536 * (currImage - 1);
+    const max = 1536 * featured_images.length;
+
+    return (<Box width="xl" sx={{overflow: 'hidden'}}>
+        <Stack direction="row" className="transform" minWidth={`${max}px`} sx={{ height: '600px', ml: `${num}px`}}>
             {imageList}
-        </div>
-        <div className="scroll-container">
-            <a className="prev" onClick={() => scroll(-1)}>&#10094;</a>
-            {dotList}
-            <a className="next" onClick={() => scroll(1)}>&#10095;</a>
-        </div>
-    </div>);
+        </Stack>
+        <Box display="flex">
+            <Box m="auto" sx={{ my: 1 }}>
+                <a className="prev" onClick={() => scroll(-1)}>&#10094;</a>
+                {dotList}
+                <a className="next" onClick={() => scroll(1)}>&#10095;</a>
+            </Box>
+        </Box>
+    </Box>);
 
 };
 

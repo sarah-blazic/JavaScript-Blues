@@ -1,12 +1,13 @@
 module.exports = function (sequelize, DataTypes) {
   const Order = sequelize.define("Order", {
-    customer: {
+    //maybe not needed due to association + foreignKey?
+    /*customer: {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate: {
         len: [1],
       }
-    },
+    },*/
     shippingType: {
       type: DataTypes.STRING,
       allowNull: false,

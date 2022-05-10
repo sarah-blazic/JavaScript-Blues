@@ -1,6 +1,4 @@
-import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
 import "./Footer.css";
@@ -19,11 +17,8 @@ const Footer = () => {
                 : theme.palette.grey[800],
           }}
         >
-        <Grid container justifyContent="flex-end" sx={{
-            pr: 10,
-          }}
-          >
-            <Link color="inherit" className="fa-brands fa-twitter-square fa-xl footer-icons" href="https://twitter.com" />
+        <Grid container justifyContent="flex-end" sx={{ pr: 5 }}>
+            <Link color="inherit" className="fa-brands fa-twitter-square fa-xl footer-icons" href="https://twitter.com" sx={{ pr: 2 }}/>
             <Link color="inherit" className="fa-brands fa-instagram-square fa-xl footer-icons" href="https://twitter.com" />
           </Grid>
         </Box>);

@@ -5,7 +5,7 @@ const product_card = [
     description: "Your average heroku italian",
     price: 350,
     currency: "$",
-    thumb: require("../../images/product.png"),
+    thumb: "./product.png",
     url: "/product"
   },
   {
@@ -14,7 +14,7 @@ const product_card = [
     description: "Your average heroku italian",
     price: 250,
     currency: "$",
-    thumb: require("../../images/product.png"),
+    thumb: "./product.png",
     url: "/product"
   },
   {
@@ -23,7 +23,7 @@ const product_card = [
     description: "Your average heroku italian",
     price: 350,
     currency: "$",
-    thumb: require("../../images/product.png"),
+    thumb: "./product.png",
     url: "/product"
   },
   {
@@ -32,7 +32,7 @@ const product_card = [
     description: "Your average heroku italian",
     price: 350,
     currency: "$",
-    thumb: require("../../images/product.png"),
+    thumb: "./product.png",
     url: "/product"
   },
   {
@@ -41,7 +41,7 @@ const product_card = [
     description: "Your average heroku italian",
     price: 250,
     currency: "$",
-    thumb: require("../../images/product.png"),
+    thumb: "./product.png",
     url: "/product"
   },
   {
@@ -50,7 +50,7 @@ const product_card = [
     description: "Your average heroku italian",
     price: 350,
     currency: "$",
-    thumb: require("../../images/product.png"),
+    thumb: "./product.png",
     url: "/product"
   },
   {
@@ -59,7 +59,7 @@ const product_card = [
     description: "Your average heroku italian",
     price: 350,
     currency: "$",
-    thumb: require("../../images/product.png"),
+    thumb: "./product.png",
     url: "/product"
   },
   {
@@ -68,7 +68,7 @@ const product_card = [
     description: "Your average heroku italian",
     price: 250,
     currency: "$",
-    thumb: require("../../images/product.png"),
+    thumb: "./product.png",
     url: "/product"
   },
   {
@@ -77,7 +77,7 @@ const product_card = [
     description: "Your average heroku italian",
     price: 350,
     currency: "$",
-    thumb: require("../../images/product.png"),
+    thumb: "./product.png",
     url: "/product"
   },
 ];

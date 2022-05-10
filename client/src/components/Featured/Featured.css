@@ -6,21 +6,19 @@
 .image-container {
     vertical-align: middle;
     display: inline-block;
-    width: calc(var(--total) * 100vw);
+    width: calc(var(--total) * 1536px);
     white-space: nowrap;
     overflow-x: hidden!important;
     overflow-y: hidden!important;
     box-shadow: 10px;
     height: 600px;
     background: rgb(82, 221, 69);
-    margin-left: calc(var(--curr) * -100vw);
+    margin-left: calc(var(--curr) * -1536px);
 }
 
-.image {
-    width: 100vw;
+.carousel-image {
+    width: 1536px;
     height: 100%;
-    display: inline-block;
-    margin: 0px;
 }
 
 .transform {
@@ -71,6 +69,12 @@
 .title {
     margin-top: 5%;
     font-size: 42px;
+}
+
+.prev, .next, .featured-point {
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
 }
 
 .featured-wrapper {

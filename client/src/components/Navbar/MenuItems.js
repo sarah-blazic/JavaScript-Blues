@@ -9,7 +9,7 @@ export const MenuItems = [
     url: "catalog",
     cName: "nav-links",
   },
-  {
+  /*{
     title: "Contact Us",
     url: "/contactUs",
     cName: "nav-links",
@@ -22,6 +22,6 @@ export const MenuItems = [
   {
     title: "Login",
     url: "login",
-    cName: "nav-links-mobile",
-  },
+    cName: "nav-links",
+  },*/
 ];
