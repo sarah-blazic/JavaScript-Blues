@@ -1,11 +1,5 @@
 import * as React from 'react';
 import "./Cart.css";
-import { Card } from "@mui/material";
-// import product_card from "../catalog/product_data";
-import logo from "./product.png";
-// import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Row, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
@@ -15,11 +9,13 @@ import ImageIcon from '@mui/icons-material/Image';
 import WorkIcon from '@mui/icons-material/Work';
 import BeachAccessIcon from '@mui/icons-material/BeachAccess';
 import Divider from '@mui/material/Divider';
+import Button from '@mui/material/Button';
 
 
 export default function Cart(props) {
-  const {cartItems, onAdd} = props;
+  const {cartItems, onAdd, onRemove} = props;
     return (
+      
       <List
         sx={{
           width: '100%',
@@ -34,6 +30,7 @@ export default function Cart(props) {
             </Avatar>
           </ListItemAvatar>
           <ListItemText primary="Photos" secondary="Jan 9, 2014" />
+          <Button variant="contained">remove</Button>
         </ListItem>
         <Divider variant="inset" component="li" />
         <ListItem>
