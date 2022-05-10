@@ -43,6 +43,7 @@ function App() {
   };
   
   const onRemove = (product) => {
+    console.log("on remove ran");
     const exist = cartItems.find((x) => x.id === product.id);
     if (exist.qty === 1) {
       setCartItems(cartItems.filter((x) => x.id !== product.id));
@@ -79,7 +80,7 @@ function App() {
         <Route path="/product/:id" element={<ProductPage />} />
         <Route
           path="/cart"
-          element={<Cart onAdd={onAdd} cartItems={cartItems} />}
+          element={<Cart onAdd={onAdd} cartItems={cartItems} onRemove={onRemove}/>}
         />
         <Route
           path="/account"
