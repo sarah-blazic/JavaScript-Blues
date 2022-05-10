@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate, Route, Routes, Navigate } from "react-router-dom";
 import { AuthProvider, AuthContext } from "./AuthContext";
 // Pages
@@ -14,10 +14,20 @@ import Footer from "./components/Footer/Footer";
 import SearchBar from "./components/SearchBar/SearchBar";
 import product_card from "./pages/Catalog/product_data";
 import ProductPage from "./components/ProductPage/ProductPage";
-import Cart from "./components/Cart/Cart";
+import Cart from "./pages/Cart/Cart";
 import PreviewPage from "./components/HostedPaymentPage/PreviewPage";
 
 function App() {
+  const [cartItems, setCartItems] = useState([]);
+  const onAdd = (product) => {
+    console.log("add ran");
+const exist = cartItems.find(x => x.id === product.id);
+if(exist){
+  setCartItems(cartItems.map(x => x.id == product.id ? {...exist, qty: exist.qty + 1} : x));
+}else{
+  setCartItems([...cartItems, {...product, qty: 1}]);
+}
+  }
   const navigate = useNavigate();
   const { isAuth } = useContext(AuthContext);
   console.log("App auth: ", isAuth);
@@ -45,13 +55,13 @@ function App() {
         <Navbar cartCount={ 3 } />
         <Routes>
           <Route exact path="/" element={ <Home /> } />
-          <Route path="/catalog" element={ <Catalog /> } />
+          <Route path="/catalog" element={ <Catalog onAdd={onAdd} cartItems={cartItems} /> } />
           <Route path="/login" element={ <Login navigate={ navigate } /> } />
           <Route path="/signup" element={ <Signup />} />
           <Route path="/payment" element={<PreviewPage/>} />
           <Route path="/signup" element={ <Signup navigate={ navigate } />} />
           <Route path="/product" element = {<ProductPage/>}/>
-          <Route path="/cart" element={ <Cart />} />
+          <Route path="/cart" element={ <Cart onAdd={onAdd} cartItems={cartItems} />} />
           <Route path="/account" 
             element={
               <RequireAuth redirectTo="/login">

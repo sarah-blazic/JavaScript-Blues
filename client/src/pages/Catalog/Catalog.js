@@ -2,11 +2,18 @@ import React from "react";
 import product_card from "./product_data";
 import "./Catalog.css";
 import ProductCard from "../../components/ProductCard/ProductCard";
+import axios from "axios";
 
-function Catalog() {
+function Catalog(props) {
+  //const products = axios.get("/api/products");
+   const {onAdd, cartItems} = props;
   const listItems = product_card.map((item) => (
-    <ProductCard id={item.id} logo={item.thumb} product_name={item.product_name} description={item.description} price={item.price} currency={item.currency} />
+    <ProductCard onAdd={onAdd} cartItems={cartItems} item={item} key={item.id}/>
   ));
-  return <div className="main_content">{listItems}</div>;
+  return<div>
+   <div className="main_content">{listItems}</div>;
+   <div>adsfasdfasdfasdfasdfasdfasdfasdfadsfasdfasdf</div>
+   </div>
+  
 }
 export default Catalog;
