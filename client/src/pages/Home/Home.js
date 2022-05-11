@@ -11,7 +11,7 @@ const MainPage = ({ onAdd }) => {
     <Container sx={{
         overflow: 'hidden'
     }} maxWidth="xl">
-        <Box sx={{my : "5rem"}}>
+        <Box sx={{my : 2}}>
             <SearchBar onAdd={onAdd}/>
         </Box>
         <Featured data={featured_images}/>
