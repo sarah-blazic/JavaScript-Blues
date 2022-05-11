@@ -4,16 +4,14 @@ const { Op } = require("sequelize");
 module.exports = {
 
   getAllProducts: function(req, res) {
-    db.product.findAll({})
+    db.Product.findAll({})
       .then(function(dbProduct) {
-        console.log(dbProduct)
         res.json(dbProduct);
       })
-      .catch(error => console.log(error))
   },
 
   getProduct: function(req, res) {
-    db.product.findOne({
+    db.Product.findOne({
       where: {
         id: req.params.id
       }
@@ -24,7 +22,7 @@ module.exports = {
   },
 
   getTaggedProducts: function(req, res) {
-    db.product.findAll({
+    db.Product.findAll({
       where: {
         category: req.params.tag
       }

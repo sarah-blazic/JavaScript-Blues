@@ -8,10 +8,10 @@ const User = require("./user.js")(sequelize, Sequelize);
 
 let instance = {};
 
-instance.order = Order;
-instance.product = Product;
-// instance.review = Review;
-instance.user = User;
+instance.Order = Order;
+instance.Product = Product;
+//instance.review = Review;
+instance.User = User;
 
 Order.belongsTo(User, {
   foreignKey: {
