@@ -7,7 +7,7 @@ module.exports = {
     db.Product.findAll({})
       .then(function(dbProduct) {
         res.json(dbProduct);
-      });
+      })
   },
 
   getProduct: function(req, res) {

@@ -20,6 +20,9 @@ app.use(
     saveUninitialized: true,
   })
 );
+var cors = require('cors')
+
+app.use(cors())
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.json());
