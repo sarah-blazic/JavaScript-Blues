@@ -11,7 +11,6 @@ import Signup from "./pages/Signup/Signup";
 // Components
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
-import SearchBar from "./components/SearchBar/SearchBar";
 import ProductPage from "./pages/ProductPage/ProductPage";
 import Cart from "./pages/Cart/Cart";
 
