@@ -10,7 +10,6 @@ import ProductPage from "../../pages/ProductPage/ProductPage";
 
 const ProductCard = ({ onAdd, item }) => {
   return (
-<<<<<<< HEAD
     <Box
       sx={{
         width: "100%",
@@ -21,10 +20,6 @@ const ProductCard = ({ onAdd, item }) => {
       }}
     >
       <Box sx={{ my: 3, mx: 2 }}>
-=======
-    <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper', boxShadow: 2, mb: 3}}>
-      <Box sx={{ my: 3, mx: 2, pt: 1 }}>
->>>>>>> 77250c907b8850d48ac59c9eb6b3d757f46439af
         <Grid container alignItems="center">
           <Grid item xs>
             <Typography gutterBottom variant="h5" component="div">
