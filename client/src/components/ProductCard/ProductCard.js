@@ -8,10 +8,10 @@ import "./ProductCard.css";
 const ProductCard = ({ onAdd, item }) => {
   return (
     <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper', boxShadow: 2, mb: 3}}>
-      <Box sx={{ my: 3, mx: 2 }}>
+      <Box sx={{ my: 3, mx: 2, pt: 1 }}>
         <Grid container alignItems="center">
           <Grid item xs>
-            <Typography gutterBottom variant="h4" component="div">
+            <Typography gutterBottom variant="h5" component="div">
               {item.name}
             </Typography>
           </Grid>
