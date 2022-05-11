@@ -1,15 +1,26 @@
+//import * as React from 'react';
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
+import TextField from '@mui/material/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import React, { useState, useContext } from "react";
 import { AuthContext } from "../../AuthContext";
 import { Link, Navigate } from "react-router-dom";
-import { Button } from "../../components/Button/Button";
 import Axios from "axios";
-import "./Login.css";
+//import "./Login.css";
+
 
 const Login = (props) => {
-  // this doesnt do much right now but we have the username and password ready for authentication
+  const theme = createTheme();
+
   const { isAuth, setIsAuth } = useContext(AuthContext);
   const emptyCreds = { emailInput: "", passwordInput: "" };
-  const errorMessage = "invalid credentials";
+  const errorMessage = "Invalid email address or password.";
   const [formData, setFormData] = useState(emptyCreds);
   const [credsAreInvalid, setCredsAreInvalid] = useState("");
 
@@ -45,59 +56,63 @@ const Login = (props) => {
   return isAuth ? (
     <Navigate to="/" />
   ) : (
-    <div className="wrapper">
-      <div className="container">
-        <h1 className="welcome">Welcome Back to OnlyFrogs</h1>
-        <form onSubmit={handleSubmit}>
-          <label>
-            <input
-              placeholder="Username"
-              className="field"
-              type="text"
-              name="emailInput"
-              value={formData.emailInput}
+    <ThemeProvider theme={theme}>
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <Box
+          sx={{
+            marginTop: 8,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <Typography component="h1" variant="h5">
+            Login
+          </Typography>
+          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email Address"
+              name="email"
+              autoComplete="email"
+              autoFocus
               onChange={handleInputChange}
             />
-          </label>
-          <label>
-            <input
-              placeholder="Password"
-              className="field"
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
               type="password"
-              name="passwordInput"
-              value={formData.passwordInput}
+              id="password"
+              autoComplete="current-password"
               onChange={handleInputChange}
             />
-          </label>
-          <p className="text-danger">{credsAreInvalid}</p>
-          <h4 className="forgotPass">
-            <Link to="/forgotPassword">Forgot Password</Link>
-          </h4>
-          <div>
-            <Button type="submit" className="submit" id="submit" value="submit">
-              Submit
+
+            <p className="text-danger">{credsAreInvalid}</p>
+
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Remember me"
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Sign In
             </Button>
-          </div>
-        </form>
-        <h4 className="member">Don't have an account yet?</h4>
-        <Button
-          onClick={(e) => {
-            e.preventDefault();
-            props.navigate("../signup", { replace: true });
-          }}
-        >
-          Signup
-        </Button>
-        <Button
-          onClick={(e) => {
-            e.preventDefault();
-            props.navigate("../", { replace: true });
-          }}
-        >
-          Home
-        </Button>
-      </div>
-    </div>
+          </Box>
+        </Box>
+      </Container>
+    </ThemeProvider>
   );
 }
+
 export default Login;
