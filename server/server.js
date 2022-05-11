@@ -20,7 +20,10 @@ app.use(
     saveUninitialized: true,
   })
 );
+<<<<<<< HEAD
 
+=======
+>>>>>>> f018482a9523a81fa8b591535ef088df01623148
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.json());
