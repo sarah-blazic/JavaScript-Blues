@@ -6,7 +6,10 @@ import Typography from "@mui/material/Typography";
 import featured_images from './featured_data.js';
 import Container from '@mui/material/Container';
 
-const MainPage = ({ onAdd }) => {
+const MainPage = (props) => {
+
+    const { onAdd } = props;
+    
     return (
     <Container sx={{
         overflow: 'hidden'
