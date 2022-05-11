@@ -10,6 +10,12 @@ const SearchBarComponent = ({onAdd}) => {
   const [query, setQuery] = useState("");
   const [dataList, setDataList] = useState([]);
 
+  const style = {
+    marginRight: "auto",
+    marginLeft: "auto",
+    width: "50%"
+  }
+
   const searchProducts = () => {
     axios.get("/api/products/search/" + query)
     .then((res) => {
@@ -22,7 +28,7 @@ const SearchBarComponent = ({onAdd}) => {
   };
 
   return (
-    <div>
+    <div style={style}>
       <h2>Search for products</h2>
       <Box sx={{mt : "1rem", display : "block"}}>
         <TextField id="outlined-search" label="Search field" type="search" onChange={e => setQuery(e.target.value)} />
@@ -30,7 +36,7 @@ const SearchBarComponent = ({onAdd}) => {
           Search
         </Button>
       </Box>
-      <Box sx={{display : "block"}}>
+      <Box sx={{display : "flex", flexDirection: "row"}}>
         <ResultListComponent onAdd={onAdd} items={dataList} />
       </Box>
     </div>
