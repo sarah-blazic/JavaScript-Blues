@@ -1,7 +1,7 @@
 import React from "react";
 import "./payment.css"
 import axios from "axios";
-
+import Button from "@mui/material/Button"
 import { loadStripe } from '@stripe/stripe-js';
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
@@ -81,6 +81,6 @@ function handleClick(){
       </style>
     </form>
     */
-   <button onClick={handleClick}>fadsfasdfasd</button>
+   <Button onClick={handleClick} variant="contained">Checkout</Button>
   );
 }
