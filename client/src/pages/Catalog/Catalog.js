@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import "./Catalog.css";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
 import axios from "axios";
 
 function Catalog({onAdd}) {
@@ -25,20 +26,24 @@ function Catalog({onAdd}) {
 
   return (
     <Container maxwidth="lg">
-      <Box sx={{my : "5rem"}}>
+      <Box sx={{mt : 2}}>
         <SearchBar onAdd={onAdd}/>
       </Box>
-      <Divider sx={{my : "2rem"}} />
-      <h2>All products</h2>
-      <div className="main_content">
+      <Divider sx={{my : 2}} />
+      <Typography gutterBottom variant="h2" component="div" align="center">
+        All Products
+      </Typography>
+      <Grid container spacing={4}>
         {products.map((item) => (
-          <ProductCard
-            onAdd={onAdd}
-            item={item}
-            key={item.id}
-          />
+          <Grid item sx={4}>
+            <ProductCard
+              onAdd={onAdd}
+              item={item}
+              key={item.id}
+            />
+          </Grid>
         ))}
-      </div>
+      </Grid>
     </Container>
   );
 }
