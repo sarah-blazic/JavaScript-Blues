@@ -13,6 +13,8 @@
 }
 
 .footer-content {
+    bottom: 0;
+    position: relative;
     padding: 40px;
     background: linear-gradient(
         90deg,

@@ -1,6 +1,9 @@
+.contain{
+  min-height: 80vh;
+  text-align: center;
+}
 .card_img {
-  width: 200px;
-  height: 300px;
+  height: 400px;
 }
 .logo {
   position: relative;

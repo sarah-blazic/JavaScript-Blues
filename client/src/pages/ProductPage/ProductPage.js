@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Container, Box, Button } from "@mui/material";
 import { useParams } from "react-router";
 import axios from "axios";
+import "./ProductPage.css";
+import { addToCart } from "../../services/productService";
 
-function ProductPage() {
+function ProductPage({onAdd}) {
   const [product, setProduct] = useState([]);
-
+  const [order, setOrder] = useState()
   const { id } = useParams();
-
   console.log(useParams());
   useEffect(() => {
     async function getProduct() {
@@ -19,18 +20,23 @@ function ProductPage() {
     }
     getProduct();
   }, []);
+  
   return (
-    <Container>
+    <Container className="contain">
       <Box>
         <h1>{product.name}</h1>
-        <img
-          src={product.image ? product.image : "../../images/product.png"}
+        <img className="card_img"
+          src={`../../images/${product.image}`}
           alt={product.name}
         />
         <p>{product.name}</p>
+        <p>{product.description}</p>
         <p>Price: $ {product.price}</p>
       </Box>
-      <Button variant="contained">Add to Cart</Button>
+      <p>{order}</p>
+      <Button variant="contained" product ={product} onClick={() => onAdd(product)}>
+        Add to Cart
+      </Button>
     </Container>
   );
 }
