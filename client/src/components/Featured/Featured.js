@@ -9,8 +9,9 @@ const Featured = (props) => {
 
     const [currImage, setCurrImage] = useState(1);
 
+
     const imageList = featured_images.map((image) => (
-        <img key={image.name} src={image.uri} alt="No image found." className="carousel-image" />
+        <img key={"featured-image" + image.id} src={process.env.PUBLIC_URL + '/images/' + image.name} alt="No image found." className="carousel-image" />
     ));
 
     const dotList = [];
