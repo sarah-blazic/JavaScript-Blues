@@ -19,8 +19,9 @@ const SearchBarComponent = ({onAdd}) => {
   const searchProducts = () => {
     axios.get("/api/products/search/" + query)
     .then((res) => {
-      if (res === undefined) {setDataList(["No products found!"])};
-      setDataList(res.data.rows);
+      if (res === undefined) {
+        setDataList(["No products found!"])
+      } else setDataList(res.data.rows);
     })
     .catch((e) => {
       console.log(e);

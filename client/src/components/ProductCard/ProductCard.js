@@ -28,7 +28,7 @@ const ProductCard = ({ onAdd, item }) => {
         {item.description}
       </Typography>
       <Box sx={{ mt: 3, ml: 1, mb: 1 }}>
-        <Button onClick={() => onAdd(item)}>Add to cart</Button>
+        <Button onClick={() => {onAdd(item)}}>Add to cart</Button>
       </Box>
     </Box>
   );

@@ -95,8 +95,8 @@ const ResponsiveAppBar = (props) => {
               textDecoration: "none",
             }}
           >
-            <i className="fa-solid fa-frog" />
-            OnlyFrogs
+            <i class="fa-solid fa-computer-mouse"></i>
+            TripleClick
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
