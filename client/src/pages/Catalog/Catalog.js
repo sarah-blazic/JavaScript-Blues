@@ -25,7 +25,7 @@ function Catalog({onAdd}) {
 
   return (
     <Container maxwidth="lg">
-      <Box sx={{mt : 2}}>
+      <Box sx={{mt : 2, mx: "auto"}}>
         <SearchBar onAdd={onAdd}/>
       </Box>
       <Divider sx={{my : 2}} />
