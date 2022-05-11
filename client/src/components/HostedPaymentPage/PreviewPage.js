@@ -9,7 +9,8 @@ import { loadStripe } from '@stripe/stripe-js';
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
 );
-export default function PreviewPage() {
+export default function PreviewPage(props) {
+  const {cartItems} = props;
   React.useEffect(() => {
     // Check to see if this is a redirect back from Checkout
     const query = new URLSearchParams(window.location.search);
@@ -21,8 +22,29 @@ export default function PreviewPage() {
       console.log('Order canceled -- continue to shop around and checkout when you’re ready.');
     }
   }, []);
+  const body = {
+   cartItems
+}
+
+function handleClick(){
+  console.log("ran handleClick");
+  axios.post('/create-checkout-session', {
+    headers: { "Content-Type": "multipart/form-data" },
+    data: cartItems
+  })
+  .then(function (response) {
+    console.log(response);
+    window.location.href = response.data.url;
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+}
+
+
 
   return (
+    /*
     <form action="/create-checkout-session" method="POST">
       <section>
         <button type="submit" role="link">
@@ -58,5 +80,7 @@ export default function PreviewPage() {
         `}
       </style>
     </form>
+    */
+   <button onClick={handleClick}>fadsfasdfasd</button>
   );
 }
