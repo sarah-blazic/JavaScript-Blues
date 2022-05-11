@@ -18,8 +18,7 @@ function Catalog({onAdd}) {
       const response = await axios.get("/api/products/").catch((e) => {
         console.log(e);
       });
-      console.log("res", response.data)
-      return setProducts(response.data);
+      setProducts(response.data);
     }
     getProducts();
   }, []);
