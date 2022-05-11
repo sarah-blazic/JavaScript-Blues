@@ -1,9 +1,6 @@
-.contain{
-  min-height: 80vh;
-  text-align: center;
-}
 .card_img {
-  height: 400px;
+  width: 200px;
+  height: 300px;
 }
 .logo {
   position: relative;
@@ -17,25 +14,3 @@
 .name{
     text-align: center;
 }
-.card{
-  padding-top: 90px;
-  height: 80vh;
-  width: 95%;
-  margin-left: auto;
-  margin-right: auto;
-}
-.mainImg{
-  text-align: center;
-  margin: auto;
-  height: 30vh;
-  width: auto !important;
-}
-/* .name{
-  text-align: center;
-}
-.description{
-  text-align: center;
-}
-.addToCart{
-  text-align: center;
-} */
