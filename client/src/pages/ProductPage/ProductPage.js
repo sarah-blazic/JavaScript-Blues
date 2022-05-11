@@ -3,7 +3,6 @@ import { Container, Box, Button } from "@mui/material";
 import { useParams } from "react-router";
 import axios from "axios";
 import "./ProductPage.css";
-import { addToCart } from "../../services/productService";
 
 function ProductPage({onAdd}) {
   const [product, setProduct] = useState([]);
