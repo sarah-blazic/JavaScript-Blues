@@ -10,7 +10,7 @@ module.exports = {
           product_data: {
             name: item.name,
           },
-          unit_amount: parseInt(item.price),
+          unit_amount: parseInt(item.price * 100),
         },
         quantity: item.qty,
       };
@@ -67,8 +67,8 @@ module.exports = {
       ],
       line_items: lineItems,
       mode: "payment",
-      success_url: "https://example.com/success",
-      cancel_url: "https://example.com/cancel",
+      success_url: "https://tripleclick.herokuapp.com/success",
+      cancel_url: "https://tripleclick.herokuapp.com/fail",
     });
 
     //console.log(session);

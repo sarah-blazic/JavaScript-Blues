@@ -56,9 +56,15 @@ export default function Cart(props) {
          </Box>
         
         </ListItem>
-        <Divider variant="inset" component="li" />
+        <ListItem>
+          <ListItemSecondaryAction>
+          <Box sx={{ py: 4, }}>
+          <PreviewPage cartItems={cartItems}></PreviewPage>
+          </Box>
+          </ListItemSecondaryAction>
+        </ListItem>
       </List>
-      <PreviewPage cartItems={cartItems}></PreviewPage>
+      
       </Container>
       </Box>
     );

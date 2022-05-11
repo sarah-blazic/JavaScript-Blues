@@ -8,6 +8,8 @@ import Home from "./pages/Home/Home";
 import Catalog from "./pages/Catalog/Catalog";
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
+import Success from "./pages/Success/Success";
+import Fail from "./pages/Fail/Fail"
 // Components
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
@@ -91,6 +93,9 @@ function App() {
         <Route path="/payment" element={<PreviewPage />} />
         <Route path="/signup" element={<Signup navigate={navigate} />} />
         <Route path="/product/:id" element={<ProductPage />} />
+        <Route path="/success" element={<Success />} />
+        <Route path="/fail" element={<Fail />} />
+        
         <Route
           path="/cart"
           element={<Cart onAdd={onAdd} cartItems={cartItems} onRemove={onRemove}/>}
@@ -101,6 +106,8 @@ function App() {
             <RequireAuth redirectTo="/login">
               <Account />
             </RequireAuth>
+            
+            
           }
         />
       </Routes>
