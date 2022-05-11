@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, forwardRef } from "react";
 import { useNavigate, Route, Routes, Navigate } from "react-router-dom";
 import { AuthProvider, AuthContext } from "./AuthContext";
 // Pages
@@ -17,9 +17,17 @@ import Cart from "./pages/Cart/Cart";
 
 import PreviewPage from "./components/HostedPaymentPage/PreviewPage";
 
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
+
+const Alert = forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+
 function App() {
   const [cartItems, setCartItems] = useState([]);
   const [cartQty, setCartQty] = useState(0);
+  const [open, setOpen] = useState(false);
 
   const navigate = useNavigate();
   const { isAuth } = useContext(AuthContext);
@@ -40,6 +48,7 @@ function App() {
     } else {
       setCartItems([...cartItems, { ...product, qty: 1 }]);
     }
+    setOpen(true);
   };
 
   const onRemove = (product) => {
@@ -54,6 +63,14 @@ function App() {
         )
       );
     }
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
   };
 
   useEffect(() => {
@@ -89,6 +106,11 @@ function App() {
         />
       </Routes>
       <Footer />
+      <Snackbar open={open} autoHideDuration={1000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+          Item added to cart!
+        </Alert>
+      </Snackbar>
     </div>
   );
 }
