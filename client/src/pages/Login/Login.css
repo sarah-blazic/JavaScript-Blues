@@ -1,6 +1,7 @@
 :root {
   --primary: #4ad9e4;
   text-decoration: none;
+  height: 100vh;
 }
 .link {
   text-decoration: none;
