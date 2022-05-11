@@ -92,10 +92,9 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/payment" element={<PreviewPage />} />
         <Route path="/signup" element={<Signup navigate={navigate} />} />
-        <Route path="/product/:id" element={<ProductPage />} />
         <Route path="/success" element={<Success />} />
         <Route path="/fail" element={<Fail />} />
-        
+        <Route path="/product/:id" element={<ProductPage onAdd={onAdd}/>} />
         <Route
           path="/cart"
           element={<Cart onAdd={onAdd} cartItems={cartItems} onRemove={onRemove}/>}

@@ -95,7 +95,7 @@ const ResponsiveAppBar = (props) => {
               textDecoration: "none",
             }}
           >
-            <i class="fa-solid fa-computer-mouse"></i>
+            <i className="fa-solid fa-computer-mouse"></i>
             TripleClick
           </Typography>
 
