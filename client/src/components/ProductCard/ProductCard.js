@@ -48,7 +48,7 @@ const ProductCard = ({ onAdd, item }) => {
           component={Link}
           to={`/product/${item.id}`}
         >
-          VIEW PRODUCT
+          View Product
         </Button>
       </Box>
     </Box>
