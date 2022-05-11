@@ -13,6 +13,7 @@ import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import { ListItemSecondaryAction } from '@mui/material';
+import PreviewPage from '../../components/HostedPaymentPage/PreviewPage';
 
 export default function Cart(props) {
   const {cartItems, onAdd, onRemove} = props;
@@ -57,6 +58,7 @@ export default function Cart(props) {
         </ListItem>
         <Divider variant="inset" component="li" />
       </List>
+      <PreviewPage cartItems={cartItems}></PreviewPage>
       </Container>
       </Box>
     );
