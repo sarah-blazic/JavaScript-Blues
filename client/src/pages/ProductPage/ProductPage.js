@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Container, Box, Button } from "@mui/material";
 import { useParams } from 'react-router';
 import axios from "axios";
+import "./ProductPage.css";
+
 
 
 function ProductPage() {
