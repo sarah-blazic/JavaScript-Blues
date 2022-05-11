@@ -8,6 +8,22 @@ router.use('/api', apiRoutes);
 
 // stripe
 router.post('/create-checkout-session', async (req, res) => {
+  let lineItems =[];
+  req.body.data.forEach(item => {
+    let mappedItem = {
+      price_data: {
+        currency: 'usd',
+        product_data: {
+          name: item.name,
+        },
+        unit_amount: parseInt(item.price),
+      },
+      quantity: item.qty,
+    }
+    lineItems.push(mappedItem);
+  });
+  console.log(req.body.data);
+  
   const session = await stripe.checkout.sessions.create({
     shipping_address_collection: {
       allowed_countries: ['US', 'CA'],
@@ -56,24 +72,16 @@ router.post('/create-checkout-session', async (req, res) => {
         }
       },
     ],
-    line_items: [
-      {
-        price_data: {
-          currency: 'usd',
-          product_data: {
-            name: 'T-shirt',
-          },
-          unit_amount: 2000,
-        },
-        quantity: 1,
-      },
-    ],
+    line_items: lineItems,
     mode: 'payment',
     success_url: 'https://example.com/success',
     cancel_url: 'https://example.com/cancel',
   });
-
-  res.redirect(303, session.url);
+  
+  //console.log(session);
+  console.log("redirect??");
+  res.json({url: session.url});
+  //res.redirect(303, session.url);
 });
 
 // If no API routes are hit, send the React app
