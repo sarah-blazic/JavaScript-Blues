@@ -1,4 +1,5 @@
 const db = require("../models");
+const { Op } = require("sequelize");
 
 module.exports = {
 
@@ -32,9 +33,11 @@ module.exports = {
   },
 
   searchProducts: function(req, res) {
-    db.Order.findAndCountAll({
+    db.Product.findAndCountAll({
       where: {
-        [name.substring] : req.params.name
+        name: {
+          [Op.iLike]: "%" + req.params.name + "%"
+        }
       }
     })
       .then(function(dbOrder) {
