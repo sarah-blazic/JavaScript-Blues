@@ -39,5 +39,4 @@ function ProductPage({onAdd}) {
     </Container>
   );
 }
-
 export default ProductPage;
